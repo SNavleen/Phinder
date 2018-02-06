@@ -2,17 +2,17 @@
 <html lang="en-US">
 	<head>
 		<title>WW3 Assignment 1</title>
-		<link rel="stylesheet" href="css/normalize.css" type="text/css">
+		<!-- <link rel="stylesheet" href="css/normalize.css" type="text/css">
 		<link rel="stylesheet" href="css/general.css" type="text/css">
 		<link rel="stylesheet" href="css/style.css" type="text/css">
-		<link rel="stylesheet" href="css/item.css" type="text/css">
+		<link rel="stylesheet" href="css/item.css" type="text/css"> -->
 	</head>
 	<body>
     <!-- Title, logo, ocial media links, and  quick search bar-->
     <header>
 			<div class="logo-title-header">
       	<!-- Logo -->
-				<img src="img/radar.png" alt="Radar" class="radar-logo"></img>
+				<img src="img/radar.png" alt="Radar" class="radar-logo" height="100" width="100"></img>
       	<!-- Title -->
       	<h1 class="title-header">Phone Finder</h1>
 			</div>
@@ -22,17 +22,17 @@
         <ul class="social-media-icons">
           <li>
             <a href="https://www.facebook.com/Navleen1995" id="facebook" target="_blank">
-              <i class="fa fa-facebook"></i>
+              <i class="fa fa-facebook">Facebook</i>
             </a>
           </li>
           <li>
             <a href="http://linkedin.com/in/navleensingh" id="linkedin" target="_blank">
-              <i class="fa fa-linkedin"></i>
+              <i class="fa fa-linkedin">Linkedin</i>
             </a>
           </li>
           <li>
             <a href="https://github.com/SNavleen" id="github" target="_blank">
-              <i class="fa fa-github"></i>
+              <i class="fa fa-github">Github</i>
             </a>
           </li>
         </ul>
@@ -44,8 +44,19 @@
           <label>
             <span class="screen-reader-text">Search for:</span>
             <input type="search" class="search-field" placeholder="Enter phone type to search..." value="" name="search-input"/>
+						<select name="rating" id="rating">
+  						<option value="1star">1 Star</option>
+  						<option value="2star">2 Star</option>
+  						<option value="3star">3 Star</option>
+  						<option value="4star">4 Star</option>
+  						<option value="5star" selected>5 Star</option>
+						</select>
           </label>
 					<input type="submit" class="search-submit" value="Submit">
+					<!-- This will be a pop up using javascript -->
+					<!-- <a href="#" id="advance-search" target="_blank">
+						<i class="advance-search-submit">Advance Search</i>
+					</a> -->
         </form>
       </div>
     </header>
@@ -54,8 +65,8 @@
 		<div>
 	    <nav class="menu">
 	      <ul>
-	        <li><a href="index.html"><span>Home</span></a></li>
-	        <li><a href="#" class="current-page">Phones</a></li>
+	        <li><a href="index.html" class="current-page"><span>Home</span></a></li>
+	        <li><a href="allPhones.html">Phones</a></li>
 		      <!-- <li><a href="#">Advansed Search</a></li> -->
 	        <li><a href="about.html">About</a></li>
 	        <li><a href="#">Login</a></li>
@@ -65,22 +76,88 @@
 
     <!-- Main content of the home page -->
     <main>
-      <!-- All phones -->
-      <div class="all-items">
-        <!-- List of items -->
-        <div class="item">
-          <a>
-            <!-- Image of item -->
-            <img></img>
-            <!-- Rating number as a small image -->
-            <div></div>
-          </a>
-          <!-- Button to navigate to view more information on the item -->
-          <button></button>
-          <!-- Title of the item -->
-          <h2 class="item-name"></h2>
-        </div>
-      </div>
+      <!-- Most popular phones -->
+			<div class="all-item">
+				<div class="all-item-info">
+	        <!-- Title of the div -->
+	        <div class"all-title">
+	          <h2>Search Results</h2>
+	        </div>
+
+					<!-- Rating number as a small image -->
+					<div class="all-item">
+						<div class="all-rating-border">
+							<div class="all-item-rating">
+								4.5
+							</div>
+						</div>
+						<!-- Button to navigate to view more information on the item -->
+						<div class="all-item-button">
+							<a>iPhone7 Plus</a>
+						</div>
+						<!-- Title of the item -->
+						<a>
+							<!-- <h2 class="top-item-name"></h2> -->
+							<img src="img/items/iPhone7Plus.jpg" alt="iPhone7Plus" class="all-item-name" height="100" width="100"></img>
+						</a>
+						<!-- Small Discription of item -->
+						<div class="all-item-mini-discription">
+							<p>
+								iPhone 7 Plus is a smartphones designed, developed, and marketed by Apple Inc.
+							</p>
+						</div>
+					</div>
+
+					<!-- Rating number as a small image -->
+					<div class="all-item">
+						<div class="all-rating-border">
+							<div class="all-item-rating">
+								4
+							</div>
+						</div>
+						<!-- Button to navigate to view more information on the item -->
+						<div class="all-item-button">
+							<a>Nexus5X</a>
+						</div>
+						<!-- Title of the item -->
+						<a>
+							<!-- <h2 class="top-item-name"></h2> -->
+							<img src="img/items/nexus5X.jpg" alt="Nexus5X" class="all-item-name" height="100" width="100"></img>
+						</a>
+						<!-- Small Discription of item -->
+						<div class="all-item-mini-discription">
+							<p>
+								Nexus 5X (codenamed bullhead) is an Android smartphone manufactured by LG Electronics, co-developed with and marketed by Google Inc.
+						</div>
+					</div>
+
+					<!-- Rating number as a small image -->
+					<div class="all-item">
+						<div class="all-rating-border">
+							<div class="all-item-rating">
+								4.5
+							</div>
+						</div>
+						<!-- Button to navigate to view more information on the item -->
+						<div class="all-item-button">
+							<a>SamsungS8</a>
+						</div>
+						<!-- Title of the item -->
+						<a>
+							<!-- <h2 class="top-item-name"></h2> -->
+							<img src="img/items/samsungS8.png" alt="SamsungS8" class="all-item-name" height="100" width="100"></img>
+						</a>
+						<!-- Small Discription of item -->
+						<div class="all-item-mini-discription">
+							<p>
+								The Samsung Galaxy S8 is an Android smartphones produced by Samsung Electronics as part of the Samsung Galaxy S series.
+							</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
     </main>
 
     <!-- Footer for all the pages showing copyright information -->
