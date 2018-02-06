@@ -12,7 +12,7 @@
     <header>
 			<div class="logo-title-header">
       	<!-- Logo -->
-				<img src="img/radar.png" alt="Radar" class="radar-logo" height="100" width="100"></img>
+				<img src="../img/radar.png" alt="Radar" class="radar-logo" height="100" width="100"></img>
       	<!-- Title -->
       	<h1 class="title-header">Phone Finder</h1>
 			</div>
@@ -40,7 +40,7 @@
 
       <!-- Quick search bar -->
       <div class="search-bar">
-        <form method="get" class="search-form" action="allPhones.html">
+        <form method="get" class="search-form" action="../allPhones.html">
           <label>
             <span class="screen-reader-text">Search for:</span>
             <input type="search" class="search-field" placeholder="Enter phone type to search..." value="" name="search-input"/>
@@ -69,98 +69,80 @@
 		<div>
 	    <nav class="menu">
 	      <ul>
-	        <li><a href="index.html" class="current-page"><span>Home</span></a></li>
-	        <li><a href="allPhones.html">Phones</a></li>
+	        <li><a href="../index.html" class="current-page"><span>Home</span></a></li>
+	        <li><a href="../allPhones.html">Phones</a></li>
 		      <!-- <li><a href="#">Advansed Search</a></li> -->
-	        <li><a href="about.html">About</a></li>
-	        <li><a href="login.html">Login</a></li>
+	        <li><a href="../about.html">About</a></li>
+	        <li><a href="../login.html">Login</a></li>
 	      </ul>
 	    </nav>
 		</div>
 
     <!-- Main content of the home page -->
     <main>
-      <!-- Most popular phones -->
-			<div class="all-item">
-				<div class="all-item-info">
-	        <!-- Title of the div -->
-	        <div class"all-title">
-	          <h2>Search Results</h2>
+      <!-- Single item -->
+      <div class="selected-item">
+				<div class="selected-item-info">
+          <!-- Rating number as a small image -->
+          <div class="selected-item-rating-border">
+						<div class="selected-item-rating">
+							4.8
+						</div>
+					</div>
+	        <!-- Button to navigate to view more information on the item -->
+					<div class="selected-item-button">
+	        	<a>Pixel2</a>
+					</div>
+	        <!-- Title of the item -->
+		      <a>
+	        	<!-- <h2 class="top-item-name"></h2> -->
+						<img src="../img/items/pixel2.jpg" alt="Pixel2" class="selected-item-name" height="100" width="100"></img>
+					</a>
+	        <!-- Small Discription of item -->
+	        <div class="selected-item-discription">
+            Pixel 2:
+	          <ul>
+              <li>Developer: Google</li>
+              <li>Manufacturer: HTC Pixel 2</li>
+              <li>Series: Pixel</li>
+              <li>Type Pixel 2: Smartphone</li>
+              Dimensions:
+              <ul>
+                <li>Height: 145.7 mm (5.74 in)</li>
+                <li>Width: 69.7 mm (2.74 in)</li>
+                <li>Depth: 7.8 mm (0.31 in)</li>
+                <li>Weight: 143 g (5.04 oz)</li>
+              </ul>
+              <li>OS:	Android 8.0 "Oreo"</li>
+              <li>Memory: 4 GB LPDDR4X RAM</li>
+              <li>Storage: 64 or 128 GB</li>
+              <li>Battery: 2,700 mAh</li>
+              <li>Display: 5 in (130 mm) FHD AMOLED, 1920 × 1080 (441 ppi)</li>
+              Rear camera:
+              <ul>
+                <li>12.2 MP</li>
+                <li>1.4 µm pixel size</li>
+                <li>f/1.8 aperture</li>
+                <li>Phase-detection autofocus and laser autofocus</li>
+                <li>HDR+ processing</li>
+                <li>Dual pixel</li>
+                <li>HD 720p (up to 240 FPS)</li>
+                <li>FHD 1080p video (up to 120 FPS)</li>
+                <li>4K 2160p video (up to 30 FPS)</li>
+              </ul>
+              Front camera:
+              <ul>
+              	<li>8 MP</li>
+                <li>Sony Exmor IMX179</li>
+                <li>1.4 µm pixel size</li>
+                <li>f/2.4 aperture</li>
+              </ul>
+            </ul>
+	          </p>
 	        </div>
-
-					<!-- Rating number as a small image -->
-					<div class="all-item">
-						<div class="all-rating-border">
-							<div class="all-item-rating">
-								4.5
-							</div>
-						</div>
-						<!-- Button to navigate to view more information on the item -->
-						<div class="all-item-button">
-							<a>iPhone7 Plus</a>
-						</div>
-						<!-- Title of the item -->
-						<a>
-							<!-- <h2 class="top-item-name"></h2> -->
-							<img src="img/items/iPhone7Plus.jpg" alt="iPhone7Plus" class="all-item-name" height="100" width="100"></img>
-						</a>
-						<!-- Small Discription of item -->
-						<div class="all-item-mini-discription">
-							<p>
-								iPhone 7 Plus is a smartphones designed, developed, and marketed by Apple Inc.
-							</p>
-						</div>
-					</div>
-
-					<!-- Rating number as a small image -->
-					<div class="all-item">
-						<div class="all-rating-border">
-							<div class="all-item-rating">
-								4
-							</div>
-						</div>
-						<!-- Button to navigate to view more information on the item -->
-						<div class="all-item-button">
-							<a>Nexus5X</a>
-						</div>
-						<!-- Title of the item -->
-						<a>
-							<!-- <h2 class="top-item-name"></h2> -->
-							<img src="img/items/nexus5X.jpg" alt="Nexus5X" class="all-item-name" height="100" width="100"></img>
-						</a>
-						<!-- Small Discription of item -->
-						<div class="all-item-mini-discription">
-							<p>
-								Nexus 5X (codenamed bullhead) is an Android smartphone manufactured by LG Electronics, co-developed with and marketed by Google Inc.
-						</div>
-					</div>
-
-					<!-- Rating number as a small image -->
-					<div class="all-item">
-						<div class="all-rating-border">
-							<div class="all-item-rating">
-								4.5
-							</div>
-						</div>
-						<!-- Button to navigate to view more information on the item -->
-						<div class="all-item-button">
-							<a>SamsungS8</a>
-						</div>
-						<!-- Title of the item -->
-						<a>
-							<!-- <h2 class="top-item-name"></h2> -->
-							<img src="img/items/samsungS8.png" alt="SamsungS8" class="all-item-name" height="100" width="100"></img>
-						</a>
-						<!-- Small Discription of item -->
-						<div class="all-item-mini-discription">
-							<p>
-								The Samsung Galaxy S8 is an Android smartphones produced by Samsung Electronics as part of the Samsung Galaxy S series.
-							</p>
-						</div>
-					</div>
-
 				</div>
-			</div>
+        <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDt46L43IvHUUR-evkjSpjL22i_H-Zda2c&q=14+Martindale+Crescent+Unit+1,+Ancaster,+ON+L9K+1J9" allowfullscreen></iframe>
+      </div>
 
     </main>
 
