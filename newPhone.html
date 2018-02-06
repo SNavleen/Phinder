@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en-US">
 	<head>
-		<title>WW3 Assignment 1</title>
+		<title>Phinder | New Review</title>
 		<!-- <link rel="stylesheet" href="css/normalize.css" type="text/css">
 		<link rel="stylesheet" href="css/general.css" type="text/css">
 		<link rel="stylesheet" href="css/style.css" type="text/css">
@@ -12,7 +12,7 @@
     <header>
 			<div class="logo-title-header">
       	<!-- Logo -->
-				<img src="img/radar.png" alt="Radar" class="radar-logo"></img>
+				<img src="img/radar.png" alt="Radar" class="radar-logo" height="100" width="100"></img>
       	<!-- Title -->
       	<h1 class="title-header">Phone Finder</h1>
 			</div>
@@ -22,17 +22,17 @@
         <ul class="social-media-icons">
           <li>
             <a href="https://www.facebook.com/Navleen1995" id="facebook" target="_blank">
-              <i class="fa fa-facebook"></i>
+              <i class="fa fa-facebook">Facebook</i>
             </a>
           </li>
           <li>
             <a href="http://linkedin.com/in/navleensingh" id="linkedin" target="_blank">
-              <i class="fa fa-linkedin"></i>
+              <i class="fa fa-linkedin">Linkedin</i>
             </a>
           </li>
           <li>
             <a href="https://github.com/SNavleen" id="github" target="_blank">
-              <i class="fa fa-github"></i>
+              <i class="fa fa-github">Github</i>
             </a>
           </li>
         </ul>
@@ -40,12 +40,27 @@
 
       <!-- Quick search bar -->
       <div class="search-bar">
-        <form method="get" class="search-form" action="#">
+        <form method="get" class="search-form" action="allPhones.html">
           <label>
             <span class="screen-reader-text">Search for:</span>
             <input type="search" class="search-field" placeholder="Enter phone type to search..." value="" name="search-input"/>
+						<select name="rating" id="rating">
+  						<option value="1star">1 Star</option>
+  						<option value="2star">2 Star</option>
+  						<option value="3star">3 Star</option>
+  						<option value="4star">4 Star</option>
+  						<option value="5star" selected>5 Star</option>
+						</select>
+						<select name="location" id="location">
+  						<option value="Hamilton">Hamilton</option>
+  						<option value="Burlington">Burlington</option>
+						</select>
           </label>
 					<input type="submit" class="search-submit" value="Submit">
+					<!-- This will be a pop up using javascript -->
+					<!-- <a href="#" id="advance-search" target="_blank">
+						<i class="advance-search-submit">Advance Search</i>
+					</a> -->
         </form>
       </div>
     </header>
@@ -56,20 +71,22 @@
 	      <ul>
 	        <li><a href="index.html"><span>Home</span></a></li>
 	        <li><a href="allPhones.html">Phones</a></li>
-		      <!-- <li><a href="#">Advansed Search</a></li> -->
-	        <li><a href="#" class="current-page">About</a></li>
-	        <li><a href="#">Login</a></li>
+		      <li><a href="newPhone.html" class="current-page">New Review</a></li>
+	        <li><a href="about.html">About</a></li>
+	        <li><a href="login.html">Login</a></li>
 	      </ul>
 	    </nav>
 		</div>
 
     <!-- Main content of the home page -->
     <main>
-      <!-- About web page -->
-      <div class="about">
-				<p>
-					About the web page
-				</p>
+      <div class="new-phone">
+        <form method="post" class="new-phone-form" action="#">
+          <input type="text" class="phone-name-field" placeholder="Enter a new Phone..." value="" name="phone-name-field"/>
+					<h4 class="details-title">Phone Details</h4>
+					<textarea class="details" name="details"></textarea>
+					<input type="submit" class="new-phone-submit" value="Submit">
+        </form>
       </div>
     </main>
 
