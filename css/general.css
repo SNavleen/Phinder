@@ -13,6 +13,7 @@ body{
   width: 90%;
   margin: auto;
   overflow: hidden;
+  /* padding: 0px 30px; */
 }
 ul{
   margin: 0;
@@ -152,8 +153,55 @@ header{
   } */
 
 /* Navigation bar */
-
-
+nav{
+  background: #002AE5;
+  color: #33FF4F;
+  padding: 30px;
+}
+.menu{
+  font-weight: 500;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+  float: none;
+}
+.menu:noselect{
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.menu ul{
+  margin: 0;
+  padding: 0px 18%;
+  list-style: none;
+  display: inline;
+}
+.menu ul li{
+  display: inline-block;
+  position: relative;
+  white-space: nowrap;
+  background: none;
+}
+.menu ul li a{
+  color: #64FF33;
+  padding-right: 40px;
+  font-size: 15px;
+  line-height: 1;
+  text-decoration: none;
+  zoom: 1;
+  cursor: pointer;
+  display: block;
+  position: relative;
+}
+ .menu ul li a:hover, .menu ul li a.current-page:active{
+   color: #DA33FF;
+ }
+.menu ul li a.current-page{
+  color: #FF335B;
+}
 /* Footer information */
 footer{
   padding: 30px;
