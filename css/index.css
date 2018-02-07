@@ -1,7 +1,7 @@
 /* Top item format */
 .top-item {
   min-height: 400px;
-  background-image: url(../img/items/pixel2.jpg);
+  background-image: url(../img/items/pixel2.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -108,7 +108,7 @@
     background: #FF5B33;
     border-radius: 10px;
     padding: 11px 30px;
-    width: 35%;
+    width: 30%;
   }
   .top-item-specs h4{
     padding: 0px;
@@ -120,3 +120,141 @@
     list-style: none;
     text-indent: 5mm
   }
+
+/* Most popular items information */
+.most-popular-items{
+  float: left;
+  width: 50%
+}
+.most-popular-title{
+  text-align: center;
+  padding: 10px;
+}
+.most-popular-item{
+  position:relative;
+  min-height: 225px;
+  min-width: 200px;
+  background-color: rgba(51, 243, 255, 0.5);
+  border: 5px solid rgba(51, 54, 255, 0.5);
+  border-style: outset;
+  border-radius: 10px;
+  margin: 10px;
+  text-align: center;
+}
+.most-popular-rating-border{
+  position: relative;
+  width: 52px;
+  float: right;
+  background-color: #FF5B33;
+  border-radius: 10px;
+  right: 5%;
+  text-align: center;
+  font-family: 'Share', sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 32px;
+  color: #FFF333;
+  margin: 10px 0px;
+}
+.most-popular-item-button{
+  position: relative;
+  width: 50%;
+  background-color: #FF5B33;
+  border-radius: 10px;
+  left: 5%;
+  text-align: center;
+  font-family: 'Share', sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 32px;
+  margin: 10px 0px;
+}
+.most-popular-item-button a{
+  text-decoration: none; /* no underline */
+  color: #FFF333;
+}
+.most-popular-item-img{
+  position:relative;
+  float: right;
+  width: 100px;
+  height: 150px;
+  margin: 10px;
+}
+.most-popular-item-mini-discription{
+  margin: 15px 5px;
+  width: 50%;
+  text-align: center;
+  font-family: 'Share', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+}
+/* Editors choice items information */
+.editors-choice-item{
+  float: right;
+  width: 50%
+}
+.editors-choice-title{
+  text-align: center;
+  padding: 10px;
+}
+.editors-item{
+  position:relative;
+  min-height: 225px;
+  min-width: 200px;
+  background-color: rgba(51, 243, 255, 0.5);
+  border: 5px solid rgba(51, 54, 255, 0.5);
+  border-style: outset;
+  border-radius: 10px;
+  margin: 10px;
+  text-align: center;
+}
+.editors-item-rating-border{
+  position: relative;
+  width: 52px;
+  float: right;
+  background-color: #FF5B33;
+  border-radius: 10px;
+  right: 5%;
+  text-align: center;
+  font-family: 'Share', sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 32px;
+  color: #FFF333;
+  margin: 10px 0px;
+}
+.editors-item-button{
+  position: relative;
+  width: 50%;
+  background-color: #FF5B33;
+  border-radius: 10px;
+  left: 5%;
+  text-align: center;
+  font-family: 'Share', sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 32px;
+  margin: 10px 0px;
+}
+.editors-item-button a{
+  text-decoration: none; /* no underline */
+  color: #FFF333;
+}
+.editors-item-img{
+  float: right;
+  width: 100px;
+  height: 150px;
+  margin: 10px;
+}
+.editors-item-mini-discription{
+  margin: 15px 5px;
+  width: 50%;
+  text-align: center;
+  font-family: 'Share', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+}
