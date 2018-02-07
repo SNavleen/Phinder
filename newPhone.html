@@ -4,6 +4,7 @@
 		<title>Phinder | New Review</title>
 		<!-- <link rel="stylesheet" href="css/normalize.css" type="text/css"> -->
 		<link rel="stylesheet" href="css/general.css" type="text/css">
+		<link rel="stylesheet" href="css/newReview.css" type="text/css">
 		<!-- <link rel="stylesheet" href="css/style.css" type="text/css"> -->
 		<!-- <link rel="stylesheet" href="css/item.css" type="text/css"> -->
 	</head>
@@ -80,10 +81,27 @@
     <main class="container">
       <div class="new-phone">
         <form method="post" class="new-phone-form" action="#">
+					<h4 class="name-title">New Phone Information</h4>
+					<select name="rating" id="rating" class="rating">
+						<option value="1star">1 Star</option>
+						<option value="2star">2 Star</option>
+						<option value="3star">3 Star</option>
+						<option value="4star">4 Star</option>
+						<option value="5star" selected>5 Star</option>
+					</select>
+          <input type="text" class="location-field" placeholder="Enter a new Address..." value="" name="location-field"/>
+					<input type="file" name="img-of-item" id="img-of-item" class="img-of-item"/>
           <input type="text" class="phone-name-field" placeholder="Enter a new Phone..." value="" name="phone-name-field"/>
-					<h4 class="details-title">Phone Details</h4>
 					<textarea class="details" name="details"></textarea>
 					<input type="submit" class="new-phone-submit" value="Submit">
+					<!-- I will be adding a new way to select star ratings -->
+					<!-- <div class="rating">
+						<span>&#9734;</span>
+						<span>&#9734;</span>
+						<span>&#9734;</span>
+						<span>&#9734;</span>
+						<span>&#9734;</span>
+					</div> -->
         </form>
       </div>
     </main>
