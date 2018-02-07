@@ -1,0 +1,122 @@
+/* Top item format */
+.top-item {
+  min-height: 400px;
+  background-image: url(../img/items/pixel2.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+  /* text-align: center; */
+  /* color: #ffffff; */
+}
+.item-info{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: table-cell;
+  vertical-align: middle;
+  float: left;
+  max-width: 640px;
+  text-align: left;
+}
+  /* Top item rating display */
+  .item-rating-border{
+    padding-bottom: 32px;
+    position: relative;
+    width: 56px;
+    height: 34px;
+    margin: 16.17px 0;
+  }
+  .item-rating{
+    position: relative;
+    width: 52px;
+    height: 30.02px;
+    background-color: #FF5B33;
+    margin: 15.01px 0;
+    top: 25%;
+    left: 25%;
+    z-index: 10;
+    text-align: center;
+    font-family: 'Share', sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 32px;
+    color: #FFF333;
+  }
+  /* Adds the littel triangel at the top of the display */
+  .item-rating::before{
+    content: "";
+    position: absolute;
+    margin-top: -15px;
+    width: 0;
+    border-left: 26px solid transparent;
+    border-right: 26px solid transparent;
+    left: 0px;
+    border-top: 15.01px solid #FF5B33;
+
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  /* Adds the littel triangel at the bottom of the display */
+  .item-rating::after{
+    content: "";
+    position: absolute;
+    margin-top: 30px;
+    width: 0;
+    border-left: 26px solid transparent;
+    border-right: 26px solid transparent;
+    left: 0px;
+    border-top: 15.01px solid #FF5B33;
+  }
+  /* Name of the Top item */
+  .item-button{
+    margin-bottom: 15px;
+  }
+  .item-button a{
+    display: inline-block;
+    line-height: 1;
+    /* margin: 15.01px 0; */
+    /* top: 25%; */
+    left: 25%;
+    z-index: 10;
+    font-family: 'Fira Sans Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #FFF333;
+    background: #FF5B33;
+    border-radius: 10px;
+    padding: 11px 30px;
+    /* margin: 0px 7px 7px 0px; */
+  }
+  /* Discription of the top item */
+  .top-item-mini-discription{
+    margin-bottom: 15px;
+    display: block;
+    line-height: 1;
+    /* margin: 15.01px 0; */
+    /* top: 25%; */
+    /* left: 25%; */
+    /* z-index: 10; */
+    font-family: 'Fira Sans Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #FFF333;
+    background: #FF5B33;
+    border-radius: 10px;
+    padding: 11px 30px;
+    width: 35%;
+  }
+  .top-item-specs h4{
+    padding: 0px;
+    margin: 0px;
+    font-size: 18px;
+  }
+  .top-item-specs li{
+    padding-top: 10px;
+    list-style: none;
+    text-indent: 5mm
+  }
