@@ -1,0 +1,136 @@
+/* Login section */
+.login{
+  position:relative;
+  width: 45%;
+  min-height: 200px;
+  float: left;
+  background-color: rgba(51, 243, 255, 0.5);
+  border: 5px solid rgba(51, 54, 255, 0.5);
+  border-style: outset;
+  border-radius: 10px;
+  margin: 10px;
+  margin-top: 18%;
+  text-align: center;
+}
+.login-title{
+  text-align: center;
+  font-family: 'Share', sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  margin: 10px;
+}
+.login-form{
+
+}
+
+/* Register section */
+.register{
+  position:relative;
+  width: 45%;
+  min-height: 200px;
+  float: right;
+  background-color: rgba(51, 243, 255, 0.5);
+  border: 5px solid rgba(51, 54, 255, 0.5);
+  border-style: outset;
+  border-radius: 10px;
+  margin: 10px;
+  margin-top: 18%;
+  text-align: center;
+
+}
+.register-title{
+  text-align: center;
+  font-family: 'Share', sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  margin: 10px;
+}
+.register-form{
+
+}
+
+/* General inputs for both sections */
+.name-field{
+  width: 90%;
+  border-radius: 0px;
+  font-style: italic;
+  font-size: 15px;
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.9);
+  background-color: transparent;
+  background-position: right 5px;
+  background-repeat: no-repeat;
+  box-shadow: none;
+  margin: 10px;
+}
+.name-field::placeholder{
+  text-align: center;
+  color: red;
+}
+.email-field{
+  width: 90%;
+  border-radius: 0px;
+  font-style: italic;
+  font-size: 15px;
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.9);
+  background-color: transparent;
+  background-position: right 5px;
+  background-repeat: no-repeat;
+  box-shadow: none;
+  margin: 10px;
+}
+.email-field::placeholder{
+  text-align: center;
+  color: red;
+}
+.password-field{
+  width: 90%;
+  border-radius: 0px;
+  font-style: italic;
+  font-size: 15px;
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.9);
+  background-color: transparent;
+  background-position: right 5px;
+  background-repeat: no-repeat;
+  box-shadow: none;
+  margin: 10px;
+}
+.password-field::placeholder{
+  text-align: center;
+  color: red;
+}
+.login-submit{
+  width: 50%;
+  max-width: 90%;
+  border-radius: 10px;
+  /* font-style: italic; */
+  font-size: 15px;
+  /* border: none; */
+  /* border-bottom: 2px solid rgba(255, 255, 255, 0.8); */
+  color: red;
+  /* background-color: transparent; */
+  /* background-position: right 5px; */
+  /* background-repeat: no-repeat; */
+  /* box-shadow: none; */
+  /* margin: 0px auto !important; */
+}
+.register-submit{
+  width: 50%;
+  max-width: 90%;
+  border-radius: 10px;
+  /* font-style: italic; */
+  font-size: 15px;
+  /* border: none; */
+  /* border-bottom: 2px solid rgba(255, 255, 255, 0.8); */
+  color: red;
+  /* background-color: transparent; */
+  /* background-position: right 5px; */
+  /* background-repeat: no-repeat; */
+  /* box-shadow: none; */
+  /* margin: 0px auto !important; */
+}

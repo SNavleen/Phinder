@@ -4,6 +4,7 @@
 		<title>Phinder | Login</title>
 		<!-- <link rel="stylesheet" href="css/normalize.css" type="text/css"> -->
 		<link rel="stylesheet" href="css/general.css" type="text/css">
+		<link rel="stylesheet" href="css/login.css" type="text/css">
 		<!-- <link rel="stylesheet" href="css/style.css" type="text/css"> -->
 		<!-- <link rel="stylesheet" href="css/item.css" type="text/css"> -->
 	</head>
@@ -78,21 +79,25 @@
 
     <!-- Main content of the home page -->
     <main class="container">
-      <div class="login">
-        <form method="post" class="login-form" action="#">
-          <input type="email" class="email-field" placeholder="Enter email address..." value="" name="email-field"/>
-          <input type="password" class="password-field" placeholder="Enter password..." value="" name="password-field"/>
-					<input type="submit" class="login-submit" value="Submit">
-        </form>
-      </div>
+      <div class="users">
+        <div class="login">
+          <label class="login-title"> Login </label>
+          <form method="post" class="login-form" action="#">
+            <input type="email" class="email-field" placeholder="Enter email address..." value="" name="email-field"/>
+            <input type="password" class="password-field" placeholder="Enter password..." value="" name="password-field"/>
+  					<input type="submit" class="login-submit" value="Submit">
+          </form>
+        </div>
 
-      <div class="register">
-        <form method="post" class="register-form" action="#">
-          <input type="text" class="name-field" placeholder="Enter full name..." value="" name="name-field"/>
-          <input type="email" class="email-field" placeholder="Enter email address..." value="" name="email-field"/>
-          <input type="password" class="password-field" placeholder="Enter password..." value="" name="password-field"/>
-					<input type="submit" class="register-submit" value="Submit">
-        </form>
+        <div class="register">
+          <label class="register-title"> Register </label>
+          <form method="post" class="register-form" action="#">
+            <input type="text" class="name-field" placeholder="Enter full name..." value="" name="name-field"/>
+            <input type="email" class="email-field" placeholder="Enter email address..." value="" name="email-field"/>
+            <input type="password" class="password-field" placeholder="Enter password..." value="" name="password-field"/>
+  					<input type="submit" class="register-submit" value="Submit">
+          </form>
+        </div>
       </div>
     </main>
 
