@@ -1,123 +1,195 @@
-/* Default Styles */
+/* All import css scripts, fonts, etc. */
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
 
+/* General html tags */
 body{
-  background:#ffffff;
-  min-width: 1200px;
+  font: 15px/1.5 Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin:0;
+  background-color: #f4f4f4;
+  display: grid;
 }
-a{
-	color:#4145ee;
+.container{
+  width: 90%;
+  margin: auto;
+  overflow: hidden;
 }
-a:hover{
-	color:#292ca7;
-}
-img{
-	max-width:100%;
-	height: auto;
-}
-p{
-	padding-top:0px;
-	margin:0px;
-}
-p, ul, ol{
-	margin-bottom: 25px;
-}
-ul, ol{
-	margin-left:8px;
-	padding-left:16px;
-}
-li{
-  display: list-item;
-  text-align: -webkit-match-parent;
-}
-img{
-	max-width: 100%;
-	height: auto;
-	width:auto;
-}
-label{
-  cursor: pointer;
-}
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
-    outline: none;
+ul{
+  margin: 0;
+  padding: 0;
 }
 
-/* Font Styles */
-
-body, body input, body textarea, select{
-	line-height: 1.8;
-	font-size:16px;
-	font-weight:400;
-	color:#666666;
-	font-family: 'Noto Sans', sans-serif;
-}
-h1, h2, h3, h4, h5, h6{
-	-ms-word-wrap: break-word;
-	word-wrap: break-word;
-	padding:0px;
-  color:#ffffff;
-	margin:0px 0px 15px 0px;
-	line-height:1.4;
-	font-family: 'Noto Sans', sans-serif;
-}
-h1{
-	font-size:32px;
-	line-height:1.2;
-}
-h2{
-	font-size:26px;
-}
-h3{
-	font-size:22px;
-}
-h4{
-	font-size:20px;
-}
-h5{
-	font-size:18px;
-}
-h6{
-	font-size:15px;
-}
-
-/* Main Styles */
-
+/* Header information */
 header{
-  display: block;
-  height: 100px;
-  width: auto;
-  padding-right: 50px;
-  padding-left: 50px;
-  background-color: #1e023d;
+  background: #0068E5;
+  color: #33FF4F;
+  min-height: 100px;
+  padding: 30px;
 }
+  /* Social media */
+  .social-media{
+    /* display: inline-flex; */
+    float: left;
+    width: 13%;
+  }
+  ul.social-media-icons{
+    list-style: none;
+  }
+  ul.social-media-icons li{
+    display: inline;
+  }
+  ul.social-media-icons li a{
+    display: block;
+    text-align: center;
+    margin: 12px 20px 0px 0px;
+    border-radius: 40px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    background: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.85);
+  }
+  /* Logo and title */
+  .logo-title-header{
+    display: inline-flex;
+    float: left;
+    width: 33%;
+    padding-right: 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 20px;
+  }
+  .radar-logo{
+    width: 125px;
+    height: 125px;
+  }
+  /* Search bar information */
+  .search-bar{
+    text-align: center;
+    margin: 0px auto;
+  }
+  .search-bar form{
+    padding-top: 5%;
+  }
+  .screen-reader-text{
+    position: absolute;
+    top: -10000em;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+  .search-field::placeholder{
+    color: rgba(255, 255, 255, 0.9);
+  }
+  .search-field{
+    /* background-image: url(../img/search-magnify-light@2x.png); */
+    /* background-size: 40px 20px; */
+    width: 44%;
+    max-width: 90%;
+    border-radius: 0px;
+    font-style: italic;
+    font-size: 15px;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.9);
+    background-color: transparent;
+    background-position: right 5px;
+    background-repeat: no-repeat;
+    box-shadow: none;
+    margin: 0px auto !important;
+  }
+  .rating-select{
+    width: 14%;
+    max-width: 90%;
+    border-radius: 0px;
+    font-style: italic;
+    font-size: 15px;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.9);
+    background-color: transparent;
+    /* background-position: right 5px; */
+    /* background-repeat: no-repeat; */
+    /* box-shadow: none; */
+    /* margin: 0px auto !important; */
+  }
+  .location-select{
+    width: 14%;
+    max-width: 90%;
+    border-radius: 0px;
+    font-style: italic;
+    font-size: 15px;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.9);
+    background-color: transparent;
+    /* background-position: right 5px; */
+    /* background-repeat: no-repeat; */
+    /* box-shadow: none; */
+    /* margin: 0px auto !important; */
+  }
+  .search-submit{
+    width: 14%;
+    max-width: 90%;
+    border-radius: 0px;
+    font-style: italic;
+    font-size: 15px;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.9);
+    background-color: transparent;
+    /* background-position: right 5px; */
+    /* background-repeat: no-repeat; */
+    /* box-shadow: none; */
+    /* margin: 0px auto !important; */
+  }
+  /* .search-submit{
+    display: none;
+  } */
 
-nav{
-  width: auto;
-  text-align: center;
-  position: relative;
-  z-index: 10;
-  padding-right: 50px;
-  padding-left: 50px;
-  margin: 0 auto;
-  background-color: #5c39f2;
-}
+/* Navigation bar */
 
-main{
-min-height: 800px;
-}
 
+/* Footer information */
 footer{
-  display: block;
-  height: 100px;
-  width: auto;
-  background-color: #250a43;
-  padding-right: 50px;
-  padding-left: 50px;
+  padding: 30px;
+  /* margin-top: 20px; */
+  color: #33FF4F;
+  background-color: #0068E5;
+  text-align: center;
 }
 
-div{
-  height: 100%;
-  width: 100%;
-}
+  /* Copy right information */
+  .copyright-text p{
+    display: inline;
+    color: rgba(255, 255, 255, 0.45);
+    font-family: "Share", Sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+  /* Footer other info */
+  .copyright-text ul{
+    display: inline;
+    list-style: none;
+  }
+  .copyright-text ul li{
+    position: relative;
+    color: rgba(255, 255, 255, 0.45);
+    font-family: "Share", Sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+
+
+/* Responsive for tablets*/
+/* @media only screen and (max-width:800px){ */
+/* } */
+/* Responsive for mobile phones */
+/* @media only screen and (max-width:500px){ */
+/* } */
