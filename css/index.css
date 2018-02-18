@@ -1,13 +1,10 @@
 /* Top item format */
 .top-item {
   min-height: 400px;
-  background-image: url(../img/items/pixel2.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   position: relative;
-  /* text-align: center; */
-  /* color: #ffffff; */
 }
 .item-info{
   width: 100%;
@@ -28,10 +25,9 @@
     margin: 16.17px 0;
   }
   .item-rating{
-    position: relative;
     width: 52px;
     height: 30.02px;
-    background-color: #FF5B33;
+    background-color: #B0C4DE;
     margin: 15.01px 0;
     top: 25%;
     left: 25%;
@@ -42,7 +38,7 @@
     font-weight: 400;
     font-size: 22px;
     line-height: 32px;
-    color: #FFF333;
+    color: #111111;
   }
   /* Adds the littel triangel at the top of the display */
   .item-rating::before{
@@ -53,7 +49,7 @@
     border-left: 26px solid transparent;
     border-right: 26px solid transparent;
     left: 0px;
-    border-top: 15.01px solid #FF5B33;
+    border-top: 15.01px solid #B0C4DE;
 
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
@@ -70,7 +66,7 @@
     border-left: 26px solid transparent;
     border-right: 26px solid transparent;
     left: 0px;
-    border-top: 15.01px solid #FF5B33;
+    border-top: 15.01px solid #B0C4DE;
   }
   /* Name of the Top item */
   .item-button{
@@ -79,36 +75,28 @@
   .item-button a{
     display: inline-block;
     line-height: 1;
-    /* margin: 15.01px 0; */
-    /* top: 25%; */
     left: 25%;
     z-index: 10;
     font-family: 'Fira Sans Condensed', sans-serif;
     font-weight: 500;
     font-size: 14px;
-    color: #FFF333;
-    background: #FF5B33;
+    color: #111111;
+    background: #B0C4DE;
     border-radius: 10px;
-    padding: 11px 30px;
-    /* margin: 0px 7px 7px 0px; */
+    padding: 10px 20px;
   }
   /* Discription of the top item */
   .top-item-mini-discription{
     margin-bottom: 15px;
     display: block;
     line-height: 1;
-    /* margin: 15.01px 0; */
-    /* top: 25%; */
-    /* left: 25%; */
-    /* z-index: 10; */
     font-family: 'Fira Sans Condensed', sans-serif;
     font-weight: 500;
     font-size: 14px;
-    color: #FFF333;
-    background: #FF5B33;
+    color: #111111;
+    background: #B0C4DE;
     border-radius: 10px;
-    padding: 11px 30px;
-    width: 30%;
+    padding: 10px 15px;
   }
   .top-item-specs h4{
     padding: 0px;
@@ -124,7 +112,6 @@
 /* Most popular items information */
 .most-popular-items{
   float: left;
-  width: 50%
 }
 .most-popular-title{
   text-align: center;
@@ -134,7 +121,7 @@
   position:relative;
   min-height: 225px;
   min-width: 200px;
-  background-color: rgba(51, 243, 255, 0.5);
+  background-color: rgba(51, 243, 255, 0.2);
   border: 5px solid rgba(51, 54, 255, 0.5);
   border-style: outset;
   border-radius: 10px;
@@ -145,7 +132,7 @@
   position: relative;
   width: 52px;
   float: right;
-  background-color: #FF5B33;
+  background-color: #B0C4DE;
   border-radius: 10px;
   right: 5%;
   text-align: center;
@@ -154,13 +141,13 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 32px;
-  color: #FFF333;
+  color: #111111;
   margin: 10px 0px;
 }
 .most-popular-item-button{
   position: relative;
   width: 50%;
-  background-color: #FF5B33;
+  background-color: #B0C4DE;
   border-radius: 10px;
   left: 5%;
   text-align: center;
@@ -173,7 +160,7 @@
 }
 .most-popular-item-button a{
   text-decoration: none; /* no underline */
-  color: #FFF333;
+  color: #111111;
 }
 .most-popular-item-img{
   position:relative;
@@ -193,7 +180,6 @@
 /* Editors choice items information */
 .editors-choice-item{
   float: right;
-  width: 50%
 }
 .editors-choice-title{
   text-align: center;
@@ -203,7 +189,7 @@
   position:relative;
   min-height: 225px;
   min-width: 200px;
-  background-color: rgba(51, 243, 255, 0.5);
+  background-color: rgba(51, 243, 255, 0.2);
   border: 5px solid rgba(51, 54, 255, 0.5);
   border-style: outset;
   border-radius: 10px;
@@ -214,7 +200,7 @@
   position: relative;
   width: 52px;
   float: right;
-  background-color: #FF5B33;
+  background-color: #B0C4DE;
   border-radius: 10px;
   right: 5%;
   text-align: center;
@@ -223,13 +209,13 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 32px;
-  color: #FFF333;
+  color: #111111;
   margin: 10px 0px;
 }
 .editors-item-button{
   position: relative;
   width: 50%;
-  background-color: #FF5B33;
+  background-color: #B0C4DE;
   border-radius: 10px;
   left: 5%;
   text-align: center;
@@ -242,7 +228,7 @@
 }
 .editors-item-button a{
   text-decoration: none; /* no underline */
-  color: #FFF333;
+  color: #111111;
 }
 .editors-item-img{
   float: right;
@@ -267,5 +253,40 @@
   .editors-choice-item{
     display: 100%;
     float: none;
+  }
+  .top-item-img{
+    height: 200px;
+  }
+  .top-item-mini-discription{
+    width: 80%;
+  }
+  .item-rating-border{
+    background-image: url(../img/items/pixel2.png);
+    height: 200px;
+    width: 100%;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+  }
+}
+
+@media screen and (min-width:376px){
+  .top-item-img{
+    display: none;
+  }
+  .top-item {
+    background-image: url(../img/items/pixel2.png);
+  }
+  .top-item-mini-discription{
+    width: 30%;
+  }
+  .item-rating{
+    position: relative;
+  }
+  .most-popular-item{
+    width: 50%;
+  }
+  .editors-choice-item{
+    width: 50%;
   }
 }

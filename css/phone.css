@@ -31,7 +31,7 @@
     position: relative;
     width: 52px;
     height: 30.02px;
-    background-color: #FF5B33;
+    background-color: #B0C4DE;
     margin: 15.01px 0;
     top: 25%;
     left: 25%;
@@ -42,7 +42,7 @@
     font-weight: 400;
     font-size: 22px;
     line-height: 32px;
-    color: #FFF333;
+    color: #111111;
   }
   /* Adds the littel triangel at the top of the display */
   .selected-item-rating::before{
@@ -53,7 +53,7 @@
     border-left: 26px solid transparent;
     border-right: 26px solid transparent;
     left: 0px;
-    border-top: 15.01px solid #FF5B33;
+    border-top: 15.01px solid #B0C4DE;
 
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
@@ -70,7 +70,7 @@
     border-left: 26px solid transparent;
     border-right: 26px solid transparent;
     left: 0px;
-    border-top: 15.01px solid #FF5B33;
+    border-top: 15.01px solid #B0C4DE;
   }
   /* Name of the Top item */
   .selected-item-button{
@@ -86,8 +86,8 @@
     font-family: 'Fira Sans Condensed', sans-serif;
     font-weight: 500;
     font-size: 14px;
-    color: #FFF333;
-    background: #FF5B33;
+    color: #111111;
+    background: #B0C4DE;
     border-radius: 10px;
     padding: 11px 30px;
     /* margin: 0px 7px 7px 0px; */
@@ -102,8 +102,8 @@
     font-family: 'Fira Sans Condensed', sans-serif;
     font-weight: 500;
     font-size: 14px;
-    color: #FFF333;
-    background: #FF5B33;
+    color: #111111;
+    background: #B0C4DE;
     border-radius: 10px;
     padding: 11px 30px;
     width: 80%;
@@ -146,8 +146,8 @@
     font-family: 'Fira Sans Condensed', sans-serif;
     font-weight: 500;
     font-size: 14px;
-    color: #FFF333;
-    background: #FF5B33;
+    color: #111111;
+    background: #B0C4DE;
     border-radius: 10px;
     padding: 11px 30px;
     width: 80%;
