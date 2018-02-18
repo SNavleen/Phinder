@@ -56,16 +56,15 @@ header{
   /* Logo and title */
   .logo-title-header{
     display: inline-flex;
-    float: left;
-    width: 33%;
+    width: 27%;
     padding-right: 20px;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 20px;
   }
   .radar-logo{
-    width: 125px;
-    height: 125px;
+    width: 85px;
+    height: 85px;
   }
   /* Search bar information */
   .search-bar{
@@ -90,8 +89,6 @@ header{
     color: rgba(255, 255, 255, 0.9);
   }
   .search-field{
-    /* background-image: url(../img/search-magnify-light@2x.png); */
-    /* background-size: 40px 20px; */
     width: 44%;
     max-width: 90%;
     border-radius: 0px;
@@ -144,10 +141,6 @@ header{
     border-bottom: 2px solid rgba(255, 255, 255, 0.8);
     color: rgba(255, 255, 255, 0.9);
     background-color: transparent;
-    /* background-position: right 5px; */
-    /* background-repeat: no-repeat; */
-    /* box-shadow: none; */
-    /* margin: 0px auto !important; */
   }
   .search-submit{
     width: 14%;
@@ -159,14 +152,7 @@ header{
     border-bottom: 2px solid rgba(255, 255, 255, 0.8);
     color: rgba(255, 255, 255, 0.9);
     background-color: transparent;
-    /* background-position: right 5px; */
-    /* background-repeat: no-repeat; */
-    /* box-shadow: none; */
-    /* margin: 0px auto !important; */
   }
-  /* .search-submit{
-    display: none;
-  } */
 
 /* Navigation bar */
 nav{
@@ -191,12 +177,10 @@ nav{
 }
 .menu ul{
   margin: 0;
-  padding: 0px 28%;
   list-style: none;
   display: inline;
 }
 .menu ul li{
-  display: inline-block;
   position: relative;
   white-space: nowrap;
   background: none;
@@ -253,7 +237,21 @@ footer{
 
 /* Responsive for mobile phones*/
 @media screen and (min-width:0px) and (max-width:375px){
+  .container{
+    width: 80%;
+  }
   .menu ul{
     display: block;
+  }
+  .menu ul li{
+    padding: 5px;
+  }
+}
+@media screen and (min-width:376px){
+  .menu ul{
+    padding: 0px 28%;
+  }
+  .menu ul li{
+    display: inline-block;
   }
 }
