@@ -4,6 +4,7 @@
 		<title>Phinder | Login</title>
 		<link rel="stylesheet" href="css/general.css" type="text/css">
 		<link rel="stylesheet" href="css/login.css" type="text/css">
+		<script src="js/login.js" type="text/javascript"></script>
 		<meta name="viewport" content="width-device-width, initial-scale=1, user-scalable=no">
 	</head>
 	<body>
@@ -81,19 +82,19 @@
         <div class="login">
           <label class="login-title"> Login </label>
           <form method="post" class="login-form" action="#">
-            <input type="email" class="email-field" placeholder="Enter email address..." value="" name="email-field"/>
-            <input type="password" class="password-field" placeholder="Enter password..." value="" name="password-field"/>
-  					<input type="submit" class="login-submit" value="Submit">
+            <input type="email" class="email-field" placeholder="Enter email address..." value="" id="email-field-l" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required/>
+            <input type="password" class="password-field" placeholder="Enter password..." value="" id="password-field" required/>
+  					<input type="submit" class="login-submit" value="Submit" onclick="send('login')">
           </form>
         </div>
 
         <div class="register">
           <label class="register-title"> Register </label>
           <form method="post" class="register-form" action="#">
-            <input type="text" class="name-field" placeholder="Enter full name..." value="" name="name-field"/>
-            <input type="email" class="email-field" placeholder="Enter email address..." value="" name="email-field"/>
-            <input type="password" class="password-field" placeholder="Enter password..." value="" name="password-field"/>
-  					<input type="submit" class="register-submit" value="Submit">
+            <input type="text" class="name-field" placeholder="Enter full name..." value="" id="name-field"/>
+            <input type="email" class="email-field" placeholder="Enter email address..." value="" id="email-field-r" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required/>
+            <input type="password" class="password-field" placeholder="Enter password..." value="" id="password-field" required/>
+  					<input type="submit" class="register-submit" value="Submit" onclick="send('register')">
           </form>
         </div>
       </div>

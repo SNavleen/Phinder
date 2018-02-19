@@ -118,9 +118,9 @@
 }
 
 /* Responsive for mobile phones*/
-@media screen and (min-width:0px) and (max-width:375px){
+@media screen and (min-width:0px) and (max-width:656px){
 }
-@media screen and (min-width:376px){
+@media screen and (min-width:656px){
   .login{
     width: 45%;
   }
