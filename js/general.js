@@ -41,3 +41,57 @@ var samsungS8Location = {
   lat: 43.3421969,
   lng: -79.8254334
 };
+
+function getAddress(geocoder, location, field) {
+  geocoder = new google.maps.Geocoder();
+  // Get the exact address and set it to the input filed
+  geocoder.geocode({
+    'latLng': location
+  }, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      if (results[0]) {
+        var address =
+          results[0].address_components[0].long_name + " " +
+          results[0].address_components[1].long_name + " " +
+          results[0].address_components[2].long_name;
+        document.getElementById(field).value = address;
+        // console.log(results[0].address_components);
+      }
+    }
+  });
+}
+
+
+function getLocation() {
+  // Get users permission
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+
+    // Get the lat and lng
+    function showPosition(position) {
+      userLocation.lat = position.coords.latitude;
+      userLocation.lng = position.coords.longitude;
+      // sendToServer();
+      var geocoder;
+      // Get the address and update the loaction field in the search meanu automaticly 
+      getAddress(geocoder, userLocation, 'location');
+    }
+  }
+}
+
+function mapLocation() {
+  var map = new google.maps.Map(document.getElementById("map"), {
+    center: userLocation,
+    zoom: 16,
+  });
+  return map;
+}
+
+function sendToServer() {
+  // here you can reuse the object to send to a server
+  console.log("lat: " + userLocation.lat);
+  console.log("lon: " + userLocation.lng);
+}
+window.onload = function() {
+  getLocation();
+}

@@ -179,6 +179,9 @@ header{
     color: rgba(255, 255, 255, 0.9);
     background-color: transparent;
   }
+  .location-select::placeholder{
+    color: rgba(255, 255, 255, 0.9);
+  }
   .search-submit{
     width: 14%;
     max-width: 90%;
