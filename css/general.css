@@ -22,7 +22,24 @@ ul{
 main{
   min-height: 500px;
 }
-
+input:optional{
+  border-color: silver;
+}
+input:required{
+  border-color: black;
+}
+.email-field:valid{
+  background-color: rgba(0, 255, 0, 0.25);
+}
+.email-field:invalid{
+  background-color: rgba(255, 0, 0, 0.25);
+}
+.password-field:valid{
+  background-color: rgba(0, 255, 0, 0.25);
+}
+.password-field:invalid{
+  background-color: rgba(255, 0, 0, 0.25);
+}
 /* Header information */
 header{
   background: #0068E5;
