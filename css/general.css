@@ -40,6 +40,12 @@ input:required{
 .password-field:invalid{
   background-color: rgba(255, 0, 0, 0.25);
 }
+.item-map{
+  display:block;
+  width: 80%;
+  height: 450px;
+  border: 0;
+}
 /* Header information */
 header{
   background: #0068E5;
