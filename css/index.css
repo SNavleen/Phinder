@@ -245,7 +245,7 @@
   font-size: 14px;
 }
 
-@media screen and (min-width:0px) and (max-width:375px){
+@media screen and (min-width:0px) and (max-width:500px){
   .most-popular-items{
     display: 100%;
     float: none;
@@ -270,7 +270,7 @@
   }
 }
 
-@media screen and (min-width:376px){
+@media screen and (min-width:500px){
   .top-item-img{
     display: none;
   }
@@ -283,7 +283,7 @@
   .item-rating{
     position: relative;
   }
-  .most-popular-item{
+  .most-popular-items{
     width: 50%;
   }
   .editors-choice-item{
