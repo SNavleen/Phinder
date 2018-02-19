@@ -159,7 +159,7 @@
             <li>f/2.4 aperture</li>
           </ul>
         </div>
-        <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDt46L43IvHUUR-evkjSpjL22i_H-Zda2c&q=14+Martindale+Crescent+Unit+1,+Ancaster,+ON+L9K+1J9" allowfullscreen></iframe>
+        <iframe class="item-map" frameborder="0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDt46L43IvHUUR-evkjSpjL22i_H-Zda2c&q=14+Martindale+Crescent+Unit+1,+Ancaster,+ON+L9K+1J9" allowfullscreen></iframe>
 
         <div class="user-review">
           <h3>
@@ -208,25 +208,19 @@
 
         <div class="new-review">
           <form class="new-review-form" action="#" method="post">
-            <h4 class="title">
-              Overall Rating:
-    					<select name="rating" id="rating" class="rating">
-    						<option value="1star">1 Star</option>
-    						<option value="2star">2 Star</option>
-    						<option value="3star">3 Star</option>
-    						<option value="4star">4 Star</option>
-    						<option value="5star" selected>5 Star</option>
-    					</select>
-            </h4>
+            <h4 class="title">Overall Rating:</h4>
+						<select name="rating" id="rating" class="rating">
+							<option value="1star">1 Star</option>
+							<option value="2star">2 Star</option>
+							<option value="3star">3 Star</option>
+							<option value="4star">4 Star</option>
+							<option value="5star" selected>5 Star</option>
+						</select>
             <!-- <img src="../img/4.9-rating.png" alt="Pixel2" class="rating-image" height="100" width="100"></img> -->
-            <h4 class="title">
-              Select for anonymous:
-              <input type="checkBox" class="anonymous-checkBox" checked name="anonymous-checkBox"/>
-            </h4>
-            <h4 class="title">
-              Comments:
-              <textarea class="comments" name="comments"></textarea>
-            </h4>
+            <h4 class="title">Select for anonymous:</h4>
+						<input type="checkBox" class="anonymous-checkBox" checked name="anonymous-checkBox"/>
+            <h4 class="title">Comments:</h4>
+            <textarea class="comments" name="comments"></textarea>
             <input type="submit" class="submit-review" name="submit-review"/>
           </form>
         </div>
