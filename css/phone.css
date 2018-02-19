@@ -203,12 +203,6 @@
     font-size: 15px;
     color: #111111;
   }
-  .item-map{
-    display:block;
-    width: 80%;
-    height: 450px;
-    border: 0;
-  }
 /* Responsive for mobile phones*/
 @media screen and (min-width:0px) and (max-width:375px){
   .selected-item-discription{
