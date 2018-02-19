@@ -22,10 +22,10 @@ ul{
 main{
   min-height: 500px;
 }
-input:optional{
+input:optional, textarea:optional{
   border-color: silver;
 }
-input:required{
+input:required, textarea:required{
   border-color: black;
 }
 .email-field:valid{
@@ -38,6 +38,24 @@ input:required{
   background-color: rgba(0, 255, 0, 0.25);
 }
 .password-field:invalid{
+  background-color: rgba(255, 0, 0, 0.25);
+}
+.location-field:valid{
+  background-color: rgba(0, 255, 0, 0.25);
+}
+.location-field:invalid{
+  background-color: rgba(255, 0, 0, 0.25);
+}
+.phone-name-field:valid{
+  background-color: rgba(0, 255, 0, 0.25);
+}
+.phone-name-field:invalid{
+  background-color: rgba(255, 0, 0, 0.25);
+}
+.details:valid{
+  background-color: rgba(0, 255, 0, 0.25);
+}
+.details:invalid{
   background-color: rgba(255, 0, 0, 0.25);
 }
 .item-map{
@@ -136,10 +154,6 @@ header{
     border-bottom: 2px solid rgba(255, 255, 255, 0.8);
     color: rgba(255, 255, 255, 0.9);
     background-color: transparent;
-    /* background-position: right 5px; */
-    /* background-repeat: no-repeat; */
-    /* box-shadow: none; */
-    /* margin: 0px auto !important; */
   }
     /* .rating{
       unicode-bidi: bidi-override;
