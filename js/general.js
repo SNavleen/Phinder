@@ -73,7 +73,7 @@ function getLocation() {
       userLocation.lng = position.coords.longitude;
       // sendToServer();
       var geocoder;
-      // Get the address and update the loaction field in the search meanu automaticly 
+      // Get the address and update the loaction field in the search meanu automaticly
       getAddress(geocoder, userLocation, 'location');
     }
   }
