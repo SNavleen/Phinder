@@ -1,3 +1,4 @@
+// Basic map with it being cnetered on user and having 3 different pointers for different locations
 function initMap() {
   // Users location
   var map = new google.maps.Map(document.getElementById('map'), {

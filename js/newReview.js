@@ -1,3 +1,4 @@
+// Geting the new location from user
 function newLocation() {
   var marker;
   var geocoder;

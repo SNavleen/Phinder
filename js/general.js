@@ -42,6 +42,7 @@ var samsungS8Location = {
   lng: -79.8254334
 };
 
+// Get exact address of a lat and lng
 function getAddress(geocoder, location, field) {
   geocoder = new google.maps.Geocoder();
   // Get the exact address and set it to the input filed

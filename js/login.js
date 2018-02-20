@@ -1,13 +1,18 @@
 function send(form) {
+  //Change the background of the fields from red to green if they are valid
   document.addEventListener("DOMContentLoaded", function() {
     document.forms[0].addEventListener('submit', function(e) {
       e.preventDefault();
       e.currentTarget.classList.add('submitted');
     });
   });
+
+  // Validate all the fields
   var emailType = 'email-field';
   var name = document.getElementById('name-field').value;
+  var date = document.getElementById('date-field').value;
 
+  // Email validation for login and register
   if (form == 'login') {
     emailType += '-l';
   } else {
@@ -18,6 +23,7 @@ function send(form) {
   var alertMessage = '';
 
   alertMessage = validateEmail(email);
+  alertMessage = validateDate(date);
 
   //Check if there is an alertMessage
   if (alertMessage == '') {
@@ -41,6 +47,20 @@ function validateEmail(email) {
   //Check if it is a valid email
   if (email == '' || !emailRequirements.test(email)) {
     alertMessage += 'Please enter a valid email address.\n';
+  }
+
+  return alertMessage;
+}
+
+function validateDate(date) {
+  //**Variables**//
+  //Date requirements
+  var dateRequirements = /^[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])$/
+  var alertMessage = '';
+
+  //Check if it is a valid date
+  if (date == '' || !dateRequirements.test(date)) {
+    alertMessage += 'Please enter a valid date of birth.\n';
   }
 
   return alertMessage;

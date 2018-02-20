@@ -28,6 +28,14 @@ input:optional, textarea:optional{
 input:required, textarea:required{
   border-color: black;
 }
+
+/* All the valid and invalid fileds */
+.date-field:valid{
+  background-color: rgba(0, 255, 0, 0.25);
+}
+.date-field:invalid{
+  background-color: rgba(255, 0, 0, 0.25);
+}
 .email-field:valid{
   background-color: rgba(0, 255, 0, 0.25);
 }
@@ -58,6 +66,8 @@ input:required, textarea:required{
 .details:invalid{
   background-color: rgba(255, 0, 0, 0.25);
 }
+
+
 .item-map{
   display:block;
   width: 80%;

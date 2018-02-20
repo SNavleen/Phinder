@@ -18,9 +18,6 @@
   font-size: 28px;
   margin: 10px;
 }
-.login-form{
-
-}
 
 /* Register section */
 .register{
@@ -46,7 +43,7 @@
 
 /* General inputs for both sections */
 .name-field{
-  width: 90%;
+  width: 40%;
   border-radius: 0px;
   font-style: italic;
   font-size: 15px;
@@ -61,6 +58,25 @@
   margin: 10px;
 }
 .name-field::placeholder{
+  text-align: center;
+  color: #111111;
+}
+.date-field{
+  width: 40%;
+  border-radius: 0px;
+  font-style: italic;
+  font-size: 15px;
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.9);
+  color: #111111;
+  background-color: transparent;
+  background-position: right 5px;
+  background-repeat: no-repeat;
+  box-shadow: none;
+  margin: 10px;
+}
+.date-field::placeholder{
   text-align: center;
   color: #111111;
 }
