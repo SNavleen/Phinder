@@ -40,6 +40,7 @@ var nexus5XLocation = {
 var samsungS8Location = {
   lat: 43.3421969,
   lng: -79.8254334
+<<<<<<< HEAD
 };
 
 function getAddress(geocoder, location, field) {
@@ -95,3 +96,6 @@ function sendToServer() {
 window.onload = function() {
   getLocation();
 }
+=======
+};
+>>>>>>> 63712c9... added object submission page validation and geoAPI
