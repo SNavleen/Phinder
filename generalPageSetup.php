@@ -3,7 +3,7 @@
 	$homePath = $_SERVER['DOCUMENT_ROOT'];
   $globalVariables = $homePath . "/globalVariables.php";
 	include_once($globalVariables);
-  date_default_timezone_set(LOCATION);
+  // date_default_timezone_set(LOCATION);
 
   function cssImport(){
 ?>
@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="css/phone.css" type="text/css">
 <?php
   }
-
   function javascriptImport(){
 ?>
     <script src="js/general.js" type="text/javascript"></script>
@@ -108,6 +107,21 @@
   	echo '</nav>';
   }
 
-  // function footer(){
-  // }
+  function footer(){
+?>
+    <!-- Footer for all the pages showing copyright information -->
+    <footer class="container">
+      <div class="copyright-text">
+        <p>
+          &copy; 2018 All Rights Reserved. Developed <b>Navleen Singh</b>
+        </p>
+        <ul>
+          <li>Terms and conditions</li>
+          <li>Advertise</li>
+          <li>Contact</li>
+        </ul>
+      </div>
+    </footer>
+<?php
+  }
 ?>

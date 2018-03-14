@@ -176,18 +176,8 @@
       </div>
     </main>
 
-    <!-- Footer for all the pages showing copyright information -->
-    <footer class="container">
-      <div class="copyright-text">
-        <p>
-          &copy; 2018 All Rights Reserved. Developed <b>Navleen Singh</b>
-        </p>
-        <ul>
-          <li>Terms and conditions</li>
-          <li>Advertise</li>
-          <li>Contact</li>
-        </ul>
-      </div>
-    </footer>
+    <?php
+			footer();
+		?>
 	</body>
 </html>
