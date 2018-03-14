@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `mydb`.`Users` (
+CREATE TABLE IF NOT EXISTS `phinder`.`Users` (
   `userId` INT NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(255) NOT NULL,
   `pswd` VARCHAR(255) NOT NULL,
@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Users` (
   UNIQUE INDEX `email_UNIQUE` (`email` ASC))
 ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Items` (
+CREATE TABLE IF NOT EXISTS `phinder`.`Items` (
   `itemId` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `address` VARCHAR(255) NOT NULL,
@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Items` (
   UNIQUE INDEX `itemId_UNIQUE` (`itemId` ASC))
 ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`ItemReview` (
+CREATE TABLE IF NOT EXISTS `phinder`.`ItemReview` (
   `reviewId` INT NOT NULL AUTO_INCREMENT,
   `itemId` INT NOT NULL,
   `userId` INT NULL,
@@ -30,12 +30,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`ItemReview` (
   INDEX `itemId_idx` (`itemId` ASC),
   CONSTRAINT `userId`
     FOREIGN KEY (`userId`)
-    REFERENCES `mydb`.`Users` (`userId`)
+    REFERENCES `phinder`.`Users` (`userId`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `itemId`
     FOREIGN KEY (`itemId`)
-    REFERENCES `mydb`.`Items` (`itemId`)
+    REFERENCES `phinder`.`Items` (`itemId`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

@@ -1,3 +1,5 @@
 .ftpconfig
 *.swp
 .htaccess
+database/phinder.mwb
+database/phinder.mwb.bak
