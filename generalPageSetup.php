@@ -27,7 +27,7 @@
   function metaData(){
 ?>
     <!-- <meta name="viewport" content="width-device-width, initial-scale=1, user-scalable=no"> -->
-				<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no">
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no">
 <?php
   }
   function socialMedia(){
