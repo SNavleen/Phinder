@@ -12,18 +12,18 @@ function send(form) {
   var name = document.getElementById('name-field').value;
   var date = document.getElementById('date-field').value;
 
+  var alertMessage = '';
   // Email validation for login and register
   if (form == 'login') {
     emailType += '-l';
   } else {
     emailType += '-r';
+    alertMessage += validateDate(date);
     //   alertMessage = alertMessage + validateName(name);
   }
   var email = document.getElementById(emailType).value;
-  var alertMessage = '';
 
-  alertMessage = validateEmail(email);
-  alertMessage = validateDate(date);
+  alertMessage += validateEmail(email);
 
   //Check if there is an alertMessage
   if (alertMessage == '') {

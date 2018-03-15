@@ -12,11 +12,17 @@
 	define('TBL_ITEMREVIEW', 'ItemReview');
 
 	//ARRAY'S
-	$userpages = array(
+	$userPages = array(
 				"index" => "Home",
 				"allPhones" => "Phones",
 				"newPhone" => "New Review",
 				"login" => "Login"
+	);
+	$userPagesLoggedin = array(
+				"index" => "Home",
+				"allPhones" => "Phones",
+				"newPhone" => "New Review",
+				"userInformation" => "Personal"
 	);
 
 ?>

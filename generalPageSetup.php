@@ -92,12 +92,12 @@
   }
   //Navigation bar for all the different pages
   function navigation($currentPage){
-	  global $userpages;
+	  global $userPages;
     // $callingFile = debug_backtrace()[0]['file'];
   	echo '<nav class="container menu">';
   	echo '<ul>';
   	//Put all the pages in a li tag with the current page having a highlited background
-  	foreach($userpages as $file => $page){
+  	foreach($userPages as $file => $page){
   		if($page==$currentPage){
   			echo '<li><a href="'.$file.'" class="current-page"><span>'.$page.'</span></a></li>';
   		}else{
