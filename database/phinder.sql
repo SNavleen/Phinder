@@ -1,6 +1,11 @@
+DROP TABLE `phinder`.`ItemReview`;
+DROP TABLE `phinder`.`Users`;
+DROP TABLE `phinder`.`Items`;
+
 CREATE TABLE IF NOT EXISTS `phinder`.`Users` (
   `userId` INT NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(255) NOT NULL,
+  `salt` INT NOT NULL,
   `pswd` VARCHAR(255) NOT NULL,
   `dob` DATE NOT NULL,
   `name` VARCHAR(45) NULL,

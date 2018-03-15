@@ -1,20 +1,22 @@
 <?php
-	//define('', '');
+	// Import the user and passrod config file
+	$homePath = $_SERVER['DOCUMENT_ROOT'];
+  $config = $homePath . "/../config.php";
+	include_once($config);
 
-	//PATHS
-	define('CSS', '/css/');
-	define('JS', '/js/');
-	define('IMG', '/images/');
-	define('FONTS', '/fonts/');
-	define('SCRIPTS', '/scripts/');
-	define('PROPERTY', '/property/');
+	//define('', '');
+	// Database Information
+	define('DB', 'phinder');
+	define('TBL_USERS', 'Users');
+	define('TBL_ITEMS', 'Items');
+	define('TBL_ITEMREVIEW', 'ItemReview');
 
 	//ARRAY'S
 	$userpages = array(
-				"index.php" => "Home",
-				"allPhones.php" => "Phones",
-				"newPhone.php" => "New Review",
-				"login.php" => "Login"
+				"index" => "Home",
+				"allPhones" => "Phones",
+				"newPhone" => "New Review",
+				"login" => "Login"
 	);
 
 ?>
