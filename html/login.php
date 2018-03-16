@@ -2,6 +2,11 @@
 	$homePath = $_SERVER['DOCUMENT_ROOT'];
   $generalPath = $homePath . "/../generalPageSetup.php";
 	include_once($generalPath);
+	unset($_COOKIE['loginCredentials']);
+	if(!(isset($_COOKIE['loginCredentials']) && !empty(isset($_COOKIE['loginCredentials'])))){
+		setcookie("loginCredentials", "", (time() - (60*60)), "/");
+	}
+	// print_r($_COOKIE);
 	// Run this section of code if the form was submitted
 	if(!empty($_POST)){
 		// Get the keys of the form that is submitted
@@ -19,8 +24,8 @@
 			$pswd = $_POST["password-field"];
 			$query = "SELECT email, salt, pswd".
 							 " FROM " . TBL_USERS . ";";
-							 // " WHERE" .
-							 // "   email = '" . $email . "';";
+							 " WHERE" .
+							 "   email = '" . $email . "';";
 		}else if(in_array("register-form", $keys)){
 			$name = $_POST["name-field"];
 			$dob = $_POST["date-field"];
@@ -66,7 +71,11 @@
 			$userInformation = $result->fetch_assoc();
 			// Check the hash value with the salt and itterations
 			if (password_verify($pswd, $userInformation['pswd'])) {
-				echo 'Password is valid!';
+				// Set cookie for 2 hours
+				setcookie("loginCredentials", $email, (time() + (60*60*2)), "/");
+				// Redirect to accounts page once the user is loged in
+			  header("Location: account");
+			  die();
 			} else {
 				die ("<html><script language='JavaScript'>alert('Password is invalid ! Please try again.'),history.go(-1)</script></html>");
 			}

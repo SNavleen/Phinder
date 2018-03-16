@@ -1,5 +1,5 @@
 <?php
-  // session_start();
+  session_start();
 	$homePath = $_SERVER['DOCUMENT_ROOT'];
   $globalVariables = $homePath . "/../globalVariables.php";
 	include_once($globalVariables);
@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/login.css" type="text/css">
     <link rel="stylesheet" href="css/allPhones.css" type="text/css">
     <link rel="stylesheet" href="css/phone.css" type="text/css">
+    <link rel="stylesheet" href="css/account.css" type="text/css">
 <?php
   }
   function javascriptImport(){
@@ -92,12 +93,18 @@
   }
   //Navigation bar for all the different pages
   function navigation($currentPage){
+		global $userPagesLoggedin;
 	  global $userPages;
+		if(isset($_COOKIE['loginCredentials']) && !empty(isset($_COOKIE['loginCredentials']))){
+			$tabs = $userPagesLoggedin;
+		}else{
+			$tabs = $userPages;
+		}
     // $callingFile = debug_backtrace()[0]['file'];
   	echo '<nav class="container menu">';
   	echo '<ul>';
   	//Put all the pages in a li tag with the current page having a highlited background
-  	foreach($userPages as $file => $page){
+  	foreach($tabs as $file => $page){
   		if($page==$currentPage){
   			echo '<li><a href="'.$file.'" class="current-page"><span>'.$page.'</span></a></li>';
   		}else{

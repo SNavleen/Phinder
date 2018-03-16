@@ -290,17 +290,17 @@ footer{
   .container{
     width: 80%;
   }
-  .menu ul{
+  /* .menu ul{
     display: block;
-  }
+  } */
   .menu ul li{
     padding: 5px;
   }
 }
 @media screen and (min-width:376px){
-  .menu ul{
+  /* .menu ul{
     padding: 0px 28%;
-  }
+  } */
   .menu ul li{
     display: inline-block;
   }
