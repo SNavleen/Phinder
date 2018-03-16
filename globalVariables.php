@@ -6,6 +6,7 @@
 
 	//define('', '');
 	// Database Information
+	define('SERVER', '127.0.0.1');
 	define('DB', 'phinder');
 	define('TBL_USERS', 'Users');
 	define('TBL_ITEMS', 'Items');
