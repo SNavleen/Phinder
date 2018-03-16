@@ -47,38 +47,35 @@
 				$query = $query . " ;";
 			}
 		}
-		// echo $query;
+		// Check if the query errors
 		if (!$result = $mysqli->query($query)) {
+			// Check if the entry is a duplicate so the same email cant register twice
 	    if($mysqli->errno == 1062){
 				die ("<html><script language='JavaScript'>alert('The email address already exists! Please try a different one.'),history.go(-1)</script></html>");
 			}else{
 				die ("<html><script language='JavaScript'>alert('Unable to connect to database! Please try again later.'),history.go(-1)</script></html>");
 			}
 		}
+		// Run if the login form to validate password
 		if(in_array("login-form", $keys)){
+			// If there are 0 rows exit
 			if($result->num_rows === 0){
 				die ("<html><script language='JavaScript'>alert('You do not have an account yet! Please create one.'),history.go(-1)</script></html>");
 			}
+			// Get the row
 			$userInformation = $result->fetch_assoc();
-
-			$options = [
-				'rounds' => 1000,
-				'salt' => $userInformation['salt'],
-			];
-			// print_r($userInformation);
-			echo "Server: ".$userInformation['pswd'];
-			echo "User entered: ".$pswd;
-			if (password_verify($pswd, $hash)) {
+			// Check the hash value with the salt and itterations
+			if (password_verify($pswd, $userInformation['pswd'])) {
 				echo 'Password is valid!';
 			} else {
-				echo 'Invalid password.';
+				die ("<html><script language='JavaScript'>alert('Password is invalid ! Please try again.'),history.go(-1)</script></html>");
 			}
 		}
 
 		// Free up results
-		// $result->free();
+		$result->free();
 		// Close MYSQL connection
-		// $mysqli->close();
+		$mysqli->close();
 	}
 
 ?>
