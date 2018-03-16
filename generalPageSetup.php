@@ -9,7 +9,7 @@
 ?>
     <link rel="stylesheet" href="css/general.css" type="text/css">
     <link rel="stylesheet" href="css/index.css" type="text/css">
-    <link rel="stylesheet" href="css/newReview.css" type="text/css">
+    <link rel="stylesheet" href="css/newPhone.css" type="text/css">
     <link rel="stylesheet" href="css/login.css" type="text/css">
     <link rel="stylesheet" href="css/allPhones.css" type="text/css">
     <link rel="stylesheet" href="css/phone.css" type="text/css">
@@ -19,8 +19,8 @@
   function javascriptImport(){
 ?>
     <script src="js/general.js" type="text/javascript"></script>
-    <script src="js/newReview.js" type="text/javascript"></script>
-    <script src="js/login.js" type="text/javascript"></script>
+    <script src="js/newPhone.js" type="text/javascript"></script>
+    <script src="js/form.js" type="text/javascript"></script>
     <script src="js/allPhones.js" type="text/javascript"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXz0SgsK0Sup3LUBtLo5AkiwWhBqgzJbg"></script>
 <?php
@@ -95,6 +95,7 @@
   function navigation($currentPage){
 		global $userPagesLoggedin;
 	  global $userPages;
+		print_r($_COOKIE);
 		if(isset($_COOKIE['loginCredentials']) && !empty(isset($_COOKIE['loginCredentials']))){
 			$tabs = $userPagesLoggedin;
 		}else{

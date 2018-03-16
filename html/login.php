@@ -22,7 +22,7 @@
 		if(in_array("login-form", $keys)){
 			$email = $_POST["email-field-l"];
 			$pswd = $_POST["password-field"];
-			$query = "SELECT email, salt, pswd".
+			$query = "SELECT userId, email, salt, pswd".
 							 " FROM " . TBL_USERS . ";";
 							 " WHERE" .
 							 "   email = '" . $email . "';";
@@ -71,18 +71,19 @@
 			$userInformation = $result->fetch_assoc();
 			// Check the hash value with the salt and itterations
 			if (password_verify($pswd, $userInformation['pswd'])) {
-				// Set cookie for 2 hours
-				setcookie("loginCredentials", $email, (time() + (60*60*2)), "/");
-				// Redirect to accounts page once the user is loged in
-			  header("Location: account");
-			  die();
+				// Password was verifyed
 			} else {
 				die ("<html><script language='JavaScript'>alert('Password is invalid ! Please try again.'),history.go(-1)</script></html>");
 			}
+			// Free up results
+			$result->free();
 		}
 
-		// Free up results
-		$result->free();
+		// Set cookie for 2 hours
+		setcookie("loginCredentials", $email, (time() + (60*60*2)), "/");
+		// Redirect to accounts page once the user is loged in
+		header("Location: account");
+		die();
 		// Close MYSQL connection
 		$mysqli->close();
 	}

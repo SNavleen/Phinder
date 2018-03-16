@@ -7,24 +7,29 @@ function send(form) {
     });
   });
 
-  // Validate all the fields
-  var emailType = 'email-field';
-  var name = document.getElementById('name-field').value;
-  var date = document.getElementById('date-field').value;
-
   var alertMessage = '';
-  // Email validation for login and register
-  if (form == 'login') {
-    emailType += '-l';
-  } else {
-    emailType += '-r';
-    alertMessage += validateDate(date);
-    //   alertMessage = alertMessage + validateName(name);
+
+  if(form == 'login' || form == 'register'){
+    // Email validation for login and register
+    // Validate all the fields
+    var emailType = 'email-field';
+    var name = document.getElementById('name-field').value;
+    var date = document.getElementById('date-field').value;
+    if (form == 'login') {
+      emailType += '-l';
+    } else {
+      emailType += '-r';
+      alertMessage += validateDate(date);
+      //   alertMessage = alertMessage + validateName(name);
+    }
+    var email = document.getElementById(emailType).value;
+
+    alertMessage += validateEmail(email);
+  }else if(form == 'newPhone'){
+    // Validate new Review form
+  }else if(form == 'update-account'){
+    // Validate account update form
   }
-  var email = document.getElementById(emailType).value;
-
-  alertMessage += validateEmail(email);
-
   //Check if there is an alertMessage
   if (alertMessage == '') {
     var submitForm = document.getElementById(form + "form");

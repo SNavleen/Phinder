@@ -3,6 +3,8 @@
   $generalPath = $homePath . "/../generalPageSetup.php";
 	include_once($generalPath);
   // TODO: allow the user to update there information
+  // TODO: fix the filed inputs
+  // TODO: fix the javascript for account update information
 ?>
 <!doctype html>
 <html lang="en-US">

@@ -21,7 +21,7 @@
 	$userPagesLoggedin = array(
 				"index" => "Home",
 				"allPhones" => "Phones",
-				"newPhone" => "New Review",
+				"newPhone" => "New Phone",
 				"account" => "Account",
 				"logout" => "Log Out"
 	);

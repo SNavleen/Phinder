@@ -9,7 +9,7 @@
   border-style: outset;
   border-radius: 10px;
   margin: 10px;
-  margin-top: 18%;
+  margin-top: 10%;
   text-align: center;
 }
 .name-title{
@@ -93,9 +93,9 @@
   .rating{
     width: 20%;
   }
-  .location-field{
-    width: 70%;
-  }
+  /* .location-field{
+    width: 90%;
+  } */
   .img-of-item{
     width: 30%;
   }

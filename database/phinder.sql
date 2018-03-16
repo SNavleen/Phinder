@@ -18,9 +18,10 @@ CREATE TABLE IF NOT EXISTS `phinder`.`Items` (
   `itemId` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `address` VARCHAR(255) NOT NULL,
-  `imageCount` INT NOT NULL,
+  `details` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`itemId`),
-  UNIQUE INDEX `itemId_UNIQUE` (`itemId` ASC))
+  UNIQUE INDEX `itemId_UNIQUE` (`itemId` ASC),
+  UNIQUE INDEX `name_UNIQUE` (`name` ASC))
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `phinder`.`ItemReview` (

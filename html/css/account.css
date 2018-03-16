@@ -1,5 +1,6 @@
 /* Update section */
 .update{
+  width: 80%;
   position:relative;
   min-height: 200px;
   float: right;
@@ -9,6 +10,7 @@
   border-radius: 10px;
   margin: 10px;
   margin-top: 5%;
+  margin-right: 10%;
   text-align: center;
 
 }
@@ -23,7 +25,7 @@
 /* General inputs for both sections */
 .update-name-field, .update-date-field,
 .update-email-field, .update-password-field{
-  width: 50%;
+  width: 45%;
   border-radius: 0px;
   font-style: italic;
   font-size: 15px;
@@ -39,7 +41,7 @@
 }
 .update-name-field::placeholder, .update-date-field::placeholder,
 .update-email-field::placeholder, .update-password-field::placeholder{
-  text-align: center;
+  text-align: left;
   color: #111111;
 }
 .update-submit{
