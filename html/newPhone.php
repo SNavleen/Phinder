@@ -136,7 +136,7 @@
       </div>
 
 			<div class="item-map" id="map"></div>
-			<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXz0SgsK0Sup3LUBtLo5AkiwWhBqgzJbg&callback=newLocation"></script>
+			<?php googleAPI('', 'js', 'callback=newLocation'); ?>
     </main>
 
     <?php

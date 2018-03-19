@@ -2,6 +2,7 @@
 	$homePath = $_SERVER['DOCUMENT_ROOT'];
   $generalPath = $homePath . "/../generalPageSetup.php";
 	include_once($generalPath);
+	print_r($_POST);
 ?>
 <!doctype html>
 <html lang="en-US">
@@ -46,7 +47,7 @@
 					<h4><b>Location:</b> Hamilton</h4>
 				</div>
 				<div class="item-map" id="map"></div>
-				<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXz0SgsK0Sup3LUBtLo5AkiwWhBqgzJbg&callback=initMap"></script>
+				<?php googleAPI('', 'js', 'callback=initMap'); ?>
 				<table class="all-item-info">
 
 	        <!-- Table headers -->

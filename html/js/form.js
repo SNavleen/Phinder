@@ -29,6 +29,8 @@ function send(form) {
     // Validate new Review form
   }else if(form == 'update-account'){
     // Validate account update form
+  }else if(form == 'search-form'){
+    // Validate account search form
   }
   //Check if there is an alertMessage
   if (alertMessage == '') {

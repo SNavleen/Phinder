@@ -12,6 +12,8 @@
 	define('TBL_ITEMS', 'Items');
 	define('TBL_ITEMREVIEW', 'ItemReview');
 
+	define('GOOGLE_MAPS_BASE_URL', 'https://maps.googleapis.com/maps/api/');
+
 	//ARRAY'S
 	$userPages = array(
 				"index" => "Home",

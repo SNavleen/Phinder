@@ -22,9 +22,19 @@
     <script src="js/newPhone.js" type="text/javascript"></script>
     <script src="js/form.js" type="text/javascript"></script>
     <script src="js/allPhones.js" type="text/javascript"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXz0SgsK0Sup3LUBtLo5AkiwWhBqgzJbg"></script>
 <?php
+	// googleAPI();
+	// googleAPI('geocode/', 'json', 'address=157 whiteny ave hamilton on');
+	// googleAPI('geocode/', 'json', 'latlng=43.239368,-79.959027');
   }
+	function googleAPI($path, $outputFormat, $parameters){
+		$key = 'key='.GOOGLE_MAPS_API_KEY;
+		$src = GOOGLE_MAPS_BASE_URL.$path.$outputFormat.'?'.$key;
+		if($parameters != ''){
+			$src = $src.'&'.$parameters;
+		}
+    echo'<script async defer src="'.$src.'"></script>';
+	}
   function metaData(){
 ?>
     <!-- <meta name="viewport" content="width-device-width, initial-scale=1, user-scalable=no"> -->
@@ -65,24 +75,34 @@
     </div>
 <?php
   }
+	function rating(){
+?>
+		<fieldset class="rating">
+	    <input type="radio" id="star5" name="rating" value="5" /><label class = "full fa fa-star-o" for="star5" title="Awesome - 5 stars"></label>
+	    <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half fa fa-star-o" for="star4half" title="Pretty good - 4.5 stars"></label>
+	    <input type="radio" id="star4" name="rating" value="4" /><label class = "full fa fa-star-o" for="star4" title="Pretty good - 4 stars"></label>
+	    <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half fa fa-star-o" for="star3half" title="Meh - 3.5 stars"></label>
+	    <input type="radio" id="star3" name="rating" value="3" /><label class = "full fa fa-star-o" for="star3" title="Meh - 3 stars"></label>
+	    <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half fa fa-star-o" for="star2half" title="Kinda bad - 2.5 stars"></label>
+	    <input type="radio" id="star2" name="rating" value="2" /><label class = "full fa fa-star-o" for="star2" title="Kinda bad - 2 stars"></label>
+	    <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half fa fa-star-o" for="star1half" title="Meh - 1.5 stars"></label>
+	    <input type="radio" id="star1" name="rating" value="1" /><label class = "full fa fa-star-o" for="star1" title="Sucks big time - 1 star"></label>
+	    <input type="radio" id="starhalf" name="rating" value="half" /><label class="half fa fa-star-o" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+		</fieldset>
+<?php
+	}
   function searchForm(){
 ?>
     <!-- Quick search bar -->
     <div class="search-bar">
-      <form method="get" class="search-form" action="allPhones.php">
+      <form method="post" class="search-form" action="allPhones.php">
         <label>
           <span class="screen-reader-text">Search for:</span>
+					<?php rating(); ?>
           <input type="search" class="search-field" placeholder="Enter phone type to search..." value="" name="search-input"/>
-    			<select name="rating" id="rating" class="rating-select">
-    				<option value="1star">1 Star</option>
-    				<option value="2star">2 Star</option>
-    				<option value="3star">3 Star</option>
-    				<option value="4star">4 Star</option>
-    				<option value="5star" selected>5 Star</option>
-    			</select>
-    			<input type="text" class="location-select" placeholder="Enter a new Address..." value="" id="location" pattern="^[#.0-9a-zA-Z\s,-]+$"/>
+    			<input type="text" class="location-select" placeholder="Enter a new Address..." value="" name="location" id="location" pattern="^[#.0-9a-zA-Z\s,-]+$"/>
         </label>
-    		<input type="submit" class="search-submit" value="Submit">
+    		<input type="submit" class="search-submit" id="search-form" value="Submit">
     		<!-- This will be a pop up using javascript -->
     		<!-- <a href="#" id="advance-search" target="_blank">
     			<i class="advance-search-submit">Advance Search</i>

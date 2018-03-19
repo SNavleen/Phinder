@@ -10,6 +10,7 @@
 		<?php
 			cssImport();
 			javascriptImport();
+			googleAPI('', 'js', '');
 			metaData();
 		?>
 	</head>
