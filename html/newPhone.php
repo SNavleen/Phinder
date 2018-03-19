@@ -58,7 +58,7 @@
 	    	die ("<html><script language='JavaScript'>alert('Unable to upload image! Please try again later.'),history.go(-1)</script></html>");
 	    }
 		}
-
+		// TODO: reditrect the user to the review page
  		// $rating = $_POST["rating"];
 		// $review = $_POST["review"];
 		// $subQuerey = "SELECT itemId" .
@@ -95,9 +95,13 @@
 			<?php
 			 socialMedia();
 			 logo();
-			 searchForm();
 			?>
     </header>
+		<div class="container search-bar">
+			<?php
+				searchForm();
+			?>
+		</div>
 
 		<?php
 			navigation('New Review');

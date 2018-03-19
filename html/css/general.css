@@ -119,6 +119,10 @@ header{
   }
   /* Search bar information */
   .search-bar{
+    background: #0068E5;
+    color: #33FF4F;
+    padding-left: 30px;
+    padding-right: 30px;
     text-align: center;
     margin: 0px auto;
   }

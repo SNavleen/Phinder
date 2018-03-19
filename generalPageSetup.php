@@ -95,7 +95,6 @@
   function navigation($currentPage){
 		global $userPagesLoggedin;
 	  global $userPages;
-		print_r($_COOKIE);
 		if(isset($_COOKIE['loginCredentials']) && !empty(isset($_COOKIE['loginCredentials']))){
 			$tabs = $userPagesLoggedin;
 		}else{

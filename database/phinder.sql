@@ -19,6 +19,7 @@ CREATE TABLE IF NOT EXISTS `phinder`.`Items` (
   `name` VARCHAR(45) NOT NULL,
   `address` VARCHAR(255) NOT NULL,
   `details` VARCHAR(255) NOT NULL,
+  `avgRating` DOUBLE NULL,
   PRIMARY KEY (`itemId`),
   UNIQUE INDEX `itemId_UNIQUE` (`itemId` ASC),
   UNIQUE INDEX `name_UNIQUE` (`name` ASC))

@@ -104,9 +104,13 @@
 			<?php
 			 socialMedia();
 			 logo();
-			 searchForm();
 			?>
     </header>
+		<div class="container search-bar">
+			<?php
+				searchForm();
+			?>
+		</div>
 
 		<?php
 			navigation('Login');
