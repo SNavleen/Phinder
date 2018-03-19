@@ -20,6 +20,7 @@
 						 " SET" .
 						 "   name = '" . $name . "'," .
 						 "   details = '" . $details . "'," .
+						 // "   avgRating = 0," .
 						 "   address = '" . $address . "';";
 		// echo "items: ". $query;
 

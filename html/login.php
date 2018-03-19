@@ -23,7 +23,7 @@
 			$email = $_POST["email-field-l"];
 			$pswd = $_POST["password-field"];
 			$query = "SELECT userId, email, salt, pswd".
-							 " FROM " . TBL_USERS . ";";
+							 " FROM " . TBL_USERS .
 							 " WHERE" .
 							 "   email = '" . $email . "';";
 		}else if(in_array("register-form", $keys)){

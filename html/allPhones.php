@@ -3,6 +3,42 @@
   $generalPath = $homePath . "/../generalPageSetup.php";
 	include_once($generalPath);
 	print_r($_POST);
+
+	// Get the keys of the form that is submitted
+	$keys  = array_keys($_POST);
+	// Connect to the database
+	$mysqli = new mysqli(SERVER, MYSQL_GENERAL_USER, MYSQL_GENERAL_PASS, DB);
+	// Die if you cant connect to database
+	if ($mysqli->connect_errno) {
+		die ("<html><script language='JavaScript'>alert('Unable to connect to database! Please try again later.'),history.go(-1)</script></html>");
+	}
+	$query = '';
+	// Generate query for search form
+	$rating = $_POST["rating"];
+	$searchInput = $_POST["search-input"];
+	$location = $_POST["location"];
+	if($rating == ''){
+		$rating = 5;
+	}
+	$query = "SELECT itemId, name, address, details, avgRating".
+					 " FROM " . TBL_ITEMS .
+					 " WHERE" .
+					 "   avgRating  <= " . $rating . "" .
+					 "   AND address LIKE '%" . $location . "%'" .
+					 "   AND name LIKE '%" . $searchInput . "%';";
+
+	echo $query;
+	// Check if the query errors
+	if (!$result = $mysqli->query($query)) {
+		die ("<html><script language='JavaScript'>alert('Unable to connect to database! Please try again later.'),history.go(-1)</script></html>");
+	}
+
+	// If there are 0 rows exit
+	if($result->num_rows === 0){
+		// die ("<html><script language='JavaScript'>alert('You do not have an account yet! Please create one.'),history.go(-1)</script></html>");
+	}
+	// Get the row
+	$items = $result->fetch_assoc();
 ?>
 <!doctype html>
 <html lang="en-US">
@@ -139,3 +175,11 @@
 		?>
 	</body>
 </html>
+
+<?php
+// Free up results
+$result->free();
+
+// Close MYSQL connection
+$mysqli->close();
+?>
