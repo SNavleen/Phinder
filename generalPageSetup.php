@@ -18,6 +18,7 @@
   }
   function javascriptImport(){
 ?>
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js" async="async"></script>
     <script src="js/general.js" type="text/javascript"></script>
     <script src="js/newPhone.js" type="text/javascript"></script>
     <script src="js/form.js" type="text/javascript"></script>

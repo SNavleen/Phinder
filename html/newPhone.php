@@ -78,6 +78,9 @@
 	 	// 		// die ("<html><script language='JavaScript'>alert('Unable to connect to database! Please try again later.'),history.go(-1)</script></html>");
 	 	// 	}
 
+		// Redirect to accounts page once the user is loged in
+		header("Location: phone?name=$name");
+		die();
 	}
 ?>
 <!doctype html>

@@ -34,11 +34,17 @@
 	if($result->num_rows === 0){
 		die ("<html><script language='JavaScript'>alert('There are no search results! Please try again.'),history.go(-1)</script></html>");
 	}
+	$items = $result->fetch_all(MYSQLI_ASSOC);
+	$itemsJSON = json_encode($items, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE);
+	// echo $itemsJSON;
 ?>
 <!doctype html>
 <html lang="en-US">
 	<head>
 		<title>Phinder | Search Results</title>
+		<script type="text/javascript">
+		    var itemsJSON = JSON.parse('<?php echo $itemsJSON; ?>');
+		</script>
 		<?php
 			cssImport();
 			javascriptImport();
@@ -89,8 +95,7 @@
 						<th>Discription</th>
 	        </tr>
 					<?php
-						while ($item = $result->fetch_assoc()){
-							print_r($item);
+						foreach ($items as $key => $item){
 							$itemId = $item["itemId"];
 							$name = $item["name"];
 							$discription = $item["details"];

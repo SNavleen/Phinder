@@ -112,7 +112,7 @@
             <li>f/2.4 aperture</li>
           </ul>
         </div>
-        <iframe class="item-map" frameborder="0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDt46L43IvHUUR-evkjSpjL22i_H-Zda2c&q=14+Martindale+Crescent+Unit+1,+Ancaster,+ON+L9K+1J9" allowfullscreen></iframe>
+        <!-- <iframe class="item-map" frameborder="0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDt46L43IvHUUR-evkjSpjL22i_H-Zda2c&q=14+Martindale+Crescent+Unit+1,+Ancaster,+ON+L9K+1J9" allowfullscreen></iframe> -->
 
         <div class="user-review">
           <h3>
