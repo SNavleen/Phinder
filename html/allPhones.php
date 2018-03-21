@@ -22,13 +22,16 @@
 					  FROM $tbl
 					  WHERE
 					    address LIKE :location
-					    AND name LIKE :searchInput";
+					    AND name LIKE :searchInput
+							-- AND avgRating = :rating";
+							// TODO: fix the rating query
 
 	$stmt = $dbh->prepare($query);
 	$locationBindParam = "%".$location."%";
 	$searchInputBindParam = "%".$searchInput."%";
 	$stmt->bindParam(':location', $locationBindParam, PDO::PARAM_STR);
 	$stmt->bindParam(':searchInput', $searchInputBindParam, PDO::PARAM_STR);
+	// $stmt->bindParam(':rating', $rating, PDO::PARAM_STR);
 
 	try {
 		$stmt->execute();
@@ -152,11 +155,3 @@
 		?>
 	</body>
 </html>
-
-<?php
-// Free up results
-$result->free();
-
-// Close MYSQL connection
-$mysqli->close();
-?>

@@ -21,20 +21,20 @@
  						 // "   avgRating = 0," .
 		$stmt = $dbh->prepare($query);
 		$stmt->bindParam(':name', $name, PDO::PARAM_STR);
-		$stmt->bindParam(':details', $address, PDO::PARAM_STR);
-		$stmt->bindParam(':address', $details, PDO::PARAM_STR);
+		$stmt->bindParam(':address', $address, PDO::PARAM_STR);
+		$stmt->bindParam(':details', $details, PDO::PARAM_STR);
 
 		// Get image information
 		$img = pathinfo(basename($_FILES["img-of-item"]["name"]));
 		$targetDir = "img/items/";
-		$targetFile = $targetDir . $name . "." . $img["extension"];
+		$targetFile = $targetDir . $name . ".png";// . $img["extension"];
 
 		// Check if image file is a actual image or fake image
 		if(isset($_POST["submit"])) {
 			// Check if user uploaded an image
 	    $check = getimagesize($_FILES["img-of-item"]["tmp_name"]);
 	    if($check == false) {
-				die ("<html><script language='JavaScript'>alert('Unable to upload image! Please upload an image.'),history.go(-1)</script></html>");
+				die ("<html><script language='JavaScript'>alert('Unable to upload image! Please try another image.'),history.go(-1)</script></html>");
 	    }
 			// Check file size
 			if ($_FILES["img-of-item"]["size"] > 5000000) {

@@ -1,86 +1,69 @@
-console.log(itemsJSON);
-// What will be displayed when the user selects the location
-var iPhone7Plus =
-  '<h3 id="ip7p" class="item-title"><a href="phone/pixel2.html">iPhone 7 Plus (Best Buy)</a></h3>' +
-  '<div id="bodyContent">' +
-  '<p>' +
-  'iPhone 7 Plus is a smartphones designed, developed, and marketed by Apple Inc.' +
-  '</p>' +
-  '</div>';
+var items = new Array();
+var map;
 
-var nexus5X =
-  '<h3 id="n5x" class="item-title"><a href="phone/pixel2.html">Nexus 5 X (Best Buy)</a></h3>' +
-  '<div id="bodyContent">' +
-  '<p>' +
-  'Nexus 5X (codenamed bullhead) is an Android smartphone manufactured by LG Electronics, co-developed with and marketed by Google Inc.' +
-  '</p>' +
-  '</div>';
+function itemHTML(itemObj) {
+  var itemId = itemObj["itemId"];
+  var name = itemObj["name"];
+  var details = itemObj["details"];
+  var avgRating = itemObj["avgRating"];
+  var url = "phone?name="+name;
+  // What will be displayed when the user selects the location
+  var itemContent =
+    '<h3 id="'+itemId+'" class="item-title">'+
+      '<a href="'+url+'">'+name+'</a>'+
+    '</h3>'+
+    '<div id="bodyContent">'+
+      '<p>'+
+        'Average Rating: <b>'+avgRating+'</b>'
+      '</p>'+
+    '</div>';
+  return itemContent;
+}
 
-var samsungS8 =
-  '<h3 id="ss8" class="item-title"><a href="phone/pixel2.html">Samsung S 8 (Best Buy)</a></h3>' +
-  '<div id="bodyContent">' +
-  '<p>' +
-  'The Samsung Galaxy S8 is an Android smartphones produced by Samsung Electronics as part of the Samsung Galaxy S series.' +
-  '</p>' +
-  '</div>';
+function itemLocation(item, cb) {
+  var geocoder = new google.maps.Geocoder();
 
-var iPhone7PlusLocation = {
-  lat: 43.2299867,
-  lng: -79.9404233
-};
-var nexus5XLocation = {
-  lat: 43.1953076,
-  lng: -79.8112889
-};
-var samsungS8Location = {
-  lat: 43.3421969,
-  lng: -79.8254334
-};
+  geocoder.geocode({
+    'address': item["address"]
+  }, function(results, status) {
+
+    if (status == google.maps.GeocoderStatus.OK) {
+      cb(item, itemGeoLocation = {
+        lat: results[0].geometry.location.lat(),
+        lng: results[0].geometry.location.lng()
+      });
+    }
+  });
+}
 
 // Basic map with it being cnetered on user and having 3 different pointers for different locations
 function initMap() {
   // Users location
-  var map = new google.maps.Map(document.getElementById('map'), {
+  map = new google.maps.Map(document.getElementById('map'), {
     zoom: 10,
     center: userLocation
   });
 
-  // All the items information
-  var iPhone7PlusInfoWindow = new google.maps.InfoWindow({
-    content: iPhone7Plus
+  itemsJSON.forEach(function(item) {
+    itemLocation(item, addMarker);
   });
-  var nexus5XInfoWindow = new google.maps.InfoWindow({
-    content: nexus5X
-  });
-  var samsungS8InfoWindow = new google.maps.InfoWindow({
-    content: samsungS8
+}
+
+function addMarker(item, itemGeoLocation) {
+  // All the items locations
+  var itemMarker = new google.maps.Marker({
+    position: itemGeoLocation,
+    map: map,
+    title: ''
   });
 
-  // All the items locations
-  var iPhone7PlusMarker = new google.maps.Marker({
-    position: iPhone7PlusLocation,
-    map: map,
-    title: 'iPhone7Plus'
-  });
-  var nexus5XMarker = new google.maps.Marker({
-    position: nexus5XLocation,
-    map: map,
-    title: 'Nexus5X'
-  });
-  var samsungS8Marker = new google.maps.Marker({
-    position: samsungS8Location,
-    map: map,
-    title: 'SamsungS8'
+  var itemContent = itemHTML(item);
+  var itemInfoWindow = new google.maps.InfoWindow({
+    content: itemContent
   });
 
   // Add the marker
-  iPhone7PlusMarker.addListener('click', function() {
-    iPhone7PlusInfoWindow.open(map, iPhone7PlusMarker);
-  });
-  nexus5XMarker.addListener('click', function() {
-    nexus5XInfoWindow.open(map, nexus5XMarker);
-  });
-  samsungS8Marker.addListener('click', function() {
-    samsungS8InfoWindow.open(map, samsungS8Marker);
+  itemMarker.addListener('click', function() {
+    itemInfoWindow.open(map, itemMarker);
   });
 }
