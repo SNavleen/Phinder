@@ -9,7 +9,7 @@
 
 	$itemId = $_GET["itemId"];
 	$name = $_GET["name"];
-	print_r($_GET);
+
 	$query = '';
 	$query = "SELECT itemId, name, address, details, avgRating
 					  FROM $tblItems
@@ -36,28 +36,22 @@
 	$items = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	$item = $items[0];
 
-	// $query = "SELECT itemId, name, address, details, avgRating
-	// 					FROM $tbl
-	// 					WHERE";
-	// if($itemId != ''){
-	// 	$query = $query . " itemId = :itemId";
-	// }else if($name != ''){
-	// 	$query = $query . " name = :name";
-	// }
-	// $stmt = $dbh->prepare($query);
-	// if($itemId != ''){
-	// 	$stmt->bindParam(':itemId', $itemId, PDO::PARAM_INT);
-	// }else if($name != ''){
-	// 	$stmt->bindParam(':name', $name, PDO::PARAM_STR);
-	// }
+	$query = "SELECT reviewId, itemId, userId, rating, review
+						FROM $tblReviews
+						WHERE
+							itemId = :itemId";
 
-	// // Run the query only if the file is uploaded
-	// try {
-	// 	$stmt->execute();
-	// } catch (PDOException $exception) {
-	// 	// Check if the query errors
-	// 	die ("<html><script language='JavaScript'>alert('Unable to connect to database! Please try again later.'),history.go(-1)</script></html>");
-	// }
+	$stmt = $dbh->prepare($query);
+	$stmt->bindParam(':itemId', $item['itemId'], PDO::PARAM_INT);
+
+	// Run the query only if the file is uploaded
+	try {
+		$stmt->execute();
+	} catch (PDOException $exception) {
+		// Check if the query errors
+		die ("<html><script language='JavaScript'>alert('Unable to connect to database! Please try again later.'),history.go(-1)</script></html>");
+	}
+	$reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	// $item = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	// $query = "INSERT INTO " . TBL_ITEMREVIEW .
 	// 				 " SET" .
@@ -133,20 +127,46 @@
 					<?php echo $item["details"]; ?>
         </p>
         <iframe class="item-map" frameborder="0" src="https://www.google.com/maps/embed/v1/place?key=<?php echo GOOGLE_MAPS_API_KEY; ?>&q=<?php echo $item["address"]; ?>" allowfullscreen></iframe>
+				<?php
+					foreach ($reviews as $key => $review){
+						$userName = 'Anonymous';
+						if($review['userId'] != ''){
+							$dbh = mysqlConnect(DSN, MYSQL_MANAGER_USER, MYSQL_MANAGER_PASS);
+							$tblUsers = TBL_USERS;
+							$query = "SELECT name
+												FROM $tblUsers
+												WHERE
+													userId = :userId";
 
-        <div class="user-review">
-          <h3>
-            User Name
-            <span class="fa fa-star checked-star"></span>
-            <span class="fa fa-star checked-star"></span>
-            <span class="fa fa-star checked-star"></span>
-            <span class="fa fa-star checked-star"></span>
-            <span class="fa fa-star-half checked-star"></span>
-          </h3>
-          <p>
-            This is a paragraph by a user who reviewed the Google Pixel2.
-          </p>
-        </div>
+							$stmt = $dbh->prepare($query);
+							$stmt->bindParam(':userId', $review['userId'], PDO::PARAM_INT);
+
+							// Run the query only if the file is uploaded
+							try {
+								$stmt->execute();
+							} catch (PDOException $exception) {
+								// Check if the query errors
+								die ("<html><script language='JavaScript'>alert('Unable to connect to database! Please try again later.'),history.go(-1)</script></html>");
+							}
+							$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+							$user = $users[0];
+							if($users['name'] != ''){
+								$userName = $users['name'];
+							}
+						}
+				?>
+		        <div class="user-review">
+		          <h3>
+		            <?php echo $userName;?>
+								<span class="score s<?php echo ($review['rating'])*2;?>"></span>
+		          </h3>
+		          <p>
+		            <?php echo $review['review'];?>
+		          </p>
+		        </div>
+				<?php
+					}
+				?>
 
         <div class="new-review">
           <form class="new-review-form" action="#" method="post">
