@@ -59,23 +59,6 @@
 	    	die ("<html><script language='JavaScript'>alert('Unable to upload image! Please try again later.'),history.go(-1)</script></html>");
 	    }
 		}
- 		// $rating = $_POST["rating"];
-		// $review = $_POST["review"];
-		// $subQuerey = "SELECT itemId" .
-		// 						" FROM " . TBL_ITEMS .
-		// 						" WHERE " .
-		// 						"   name = '" . $name . "'";
-		// $query = "INSERT INTO " . TBL_ITEMREVIEW .
-		// 				 " SET" .
-		// 				 "   itemId = (" . $subQuerey . ")," .
-		// 				 "   userId = '" . $_COOKIE['loginCredentials'] . "'," .
-		// 				 "   rating = '" . $rating . "'," .
-		// 				 "   review = '" . $review . "';";
-		// 	 		echo "review: ". $query;
-	 	// 	// Check if the query errors
-	 	// 	if (!$result = $mysqli->query($query)) {
-	 	// 		// die ("<html><script language='JavaScript'>alert('Unable to connect to database! Please try again later.'),history.go(-1)</script></html>");
-	 	// 	}
 
 		// Redirect to accounts page once the user is loged in
 		header("Location: phone?name=$name");

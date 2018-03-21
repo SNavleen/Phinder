@@ -1,9 +1,9 @@
 /* Selected item format */
 .selected-item {
-  background-image: url(../img/items/pixel2.png);
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: cover;
+  /* background-size: cover; */
+  background-size: contain;
   position: relative;
 }
 .selected-item-info{
@@ -112,23 +112,9 @@
     list-style: none;
     text-indent: 5mm
   }
-  .overall-rating{
-    margin-bottom: 15px;
-    margin-top: 15px;
-    line-height: 1;
-    font-size: 24px;
-    font-weight: 500px;
-    border-radius: 10px;
-    padding: 11px 30px;
-    width: 80%;
-  }
   .rating-title{
     float: left;
     text-align: center;
-  }
-  .checked-star{
-    text-align: center;
-    color: orange;
   }
 
   /* User Reviews */

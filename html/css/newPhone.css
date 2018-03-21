@@ -20,14 +20,6 @@
   margin: 10px;
   text-transform: uppercase;
 }
-.rating{
-  width: 90%;
-  max-width: 90%;
-  border-radius: 0px;
-  font-size: 15px;
-  color: rgba(255, 255, 255, 0.9);
-  color: #111111;
-}
 .location-field{
   width: 90%;
   border-radius: 0px;
@@ -90,12 +82,6 @@
   .name-title{
     font-size: 28px;
   }
-  .rating{
-    width: 20%;
-  }
-  /* .location-field{
-    width: 90%;
-  } */
   .img-of-item{
     width: 30%;
   }

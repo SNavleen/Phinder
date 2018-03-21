@@ -6,7 +6,7 @@ function itemHTML(itemObj) {
   var name = itemObj["name"];
   var details = itemObj["details"];
   var avgRating = itemObj["avgRating"];
-  var url = "phone?name="+name;
+  var url = "phone?itemId="+itemId;
   // What will be displayed when the user selects the location
   var itemContent =
     '<h3 id="'+itemId+'" class="item-title">'+

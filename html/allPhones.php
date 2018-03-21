@@ -115,7 +115,7 @@
 								if($avgRating == ''){
 									$avgRating = 'NULL';
 								}
-								$phoneUrl = "phone?id=" . $itemId;
+								$phoneUrl = "phone?itemId=" . $itemId;
 								$imgPath = "img/items/" . $name . ".png";
 					?>
 								<!-- Rating number as a small image -->

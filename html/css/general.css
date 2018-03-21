@@ -102,7 +102,9 @@ header {
   background: #0068E5;
   color: #33FF4F;
   min-height: 100px;
-  padding: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 20px;
 }
 
 /* Social media */
@@ -110,7 +112,7 @@ header {
 .social-media {
   /* display: inline-flex; */
   float: left;
-  width: 13%;
+  width: 25%;
 }
 
 ul.social-media-icons {
@@ -137,7 +139,7 @@ ul.social-media-icons li a {
 
 .logo-title-header {
   display: inline-flex;
-  width: 27%;
+  width: 50%;
   padding-right: 20px;
   text-decoration: none;
   text-transform: uppercase;
@@ -156,6 +158,7 @@ ul.social-media-icons li a {
   color: #33FF4F;
   padding-left: 30px;
   padding-right: 30px;
+  padding-bottom: 15px;
   text-align: center;
   margin: 0px auto;
 }
@@ -343,57 +346,4 @@ footer {
   input[type="search"]{
     color: black;
   }
-}
-/****** Style Star Rating Widget *****/
-
-.rating {
-  border: none;
-  float: left;
-  width: 25% !important;
-}
-
-.rating>input {
-  display: none;
-}
-
-.rating>label:before {
-  margin: 5px;
-  font-size: 1.25em;
-  font-family: FontAwesome;
-  display: inline-block;
-  content: "\f005";
-}
-
-.rating>.half:before {
-  content: "\f089";
-  position: absolute;
-}
-
-.rating>label {
-  color: #ddd;
-  float: right;
-}
-
-/***** CSS Magic to Highlight Stars on Hover *****/
-
-.rating>input:checked~label,
-/* show gold star when clicked */
-
-.rating:not(:checked)>label:hover,
-/* hover current star */
-
-.rating:not(:checked)>label:hover~label {
-  color: #FFD700;
-}
-
-/* hover previous stars in list */
-
-.rating>input:checked+label:hover,
-/* hover current star when changing rating */
-
-.rating>input:checked~label:hover, .rating>label:hover~input:checked~label,
-/* lighten current selection */
-
-.rating>input:checked~label:hover~label {
-  color: #FFED85;
 }

@@ -1,0 +1,127 @@
+/****** Style Star Rating Widget *****/
+
+.rating {
+  border: none;
+  float: left;
+  width: 25% !important;
+}
+
+.rating>input {
+  display: none;
+}
+
+.rating>label:before {
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating>.half:before {
+  content: "\f089";
+  position: absolute;
+}
+
+.rating>label {
+  color: #ddd;
+  float: right;
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating>input:checked~label,
+/* show gold star when clicked */
+
+.rating:not(:checked)>label:hover,
+/* hover current star */
+
+.rating:not(:checked)>label:hover~label {
+  color: #FFD700;
+}
+
+/* hover previous stars in list */
+
+.rating>input:checked+label:hover,
+/* hover current star when changing rating */
+
+.rating>input:checked~label:hover, .rating>label:hover~input:checked~label,
+/* lighten current selection */
+
+.rating>input:checked~label:hover~label {
+  color: #FFED85;
+}
+
+/* Static star rating */
+.score {
+  display: inline-block;
+  font-family: Wingdings;
+  font-size: 30px;
+  color: #ccc;
+  position: relative;
+}
+.score::before,
+.score::after {
+  content: "\2605\2605\2605\2605\2605";
+  display: block;
+}
+.score::after {
+  color: gold;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.score.s0::after {
+  width: 0%;
+}
+.score.s1::after {
+  width: 10%;
+}
+.score.s2::after {
+  width: 20%;
+}
+.score.s3::after {
+  width: 30%;
+}
+.score.s4::after {
+  width: 40%;
+}
+.score.s5::after {
+  width: 50%;
+}
+.score.s6::after {
+  width: 60%;
+}
+.score.s7::after {
+  width: 70%;
+}
+.score.s8::after {
+  width: 80%;
+}
+.score.s9::after {
+  width: 90%;
+}
+.score.s10::after {
+  width: 100%;
+}
+
+
+
+
+/* .overall-rating{
+  margin-bottom: 15px;
+  margin-top: 15px;
+  line-height: 1;
+  font-size: 24px;
+  font-weight: 500px;
+  border-radius: 10px;
+  padding: 11px 30px;
+  width: 80%;
+} */
+
+/* .checked-star{
+  text-align: center;
+  color: orange;
+} */

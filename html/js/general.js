@@ -41,14 +41,6 @@ function getLocation() {
   }
 }
 
-// function mapLocation() {
-//   var map = new google.maps.Map(document.getElementById("map"), {
-//     center: userLocation,
-//     zoom: 16,
-//   });
-//   return map;
-// }
-
 window.onload = function() {
   getLocation();
 }

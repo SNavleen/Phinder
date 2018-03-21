@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/allPhones.css" type="text/css">
     <link rel="stylesheet" href="css/phone.css" type="text/css">
     <link rel="stylesheet" href="css/account.css" type="text/css">
+    <link rel="stylesheet" href="css/rating.css" type="text/css">
 <?php
   }
   function javascriptImport(){
