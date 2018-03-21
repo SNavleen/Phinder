@@ -93,7 +93,6 @@
 		header("Location: account");
 		die();
 	}
-
 ?>
 <!doctype html>
 	<head>

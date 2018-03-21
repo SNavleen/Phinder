@@ -6,35 +6,23 @@
 	// Run this section of code if the form was submitted
 	if(!empty($_POST)){
 		// Connect to the database
-		$mysqli = new mysqli(SERVER, MYSQL_GENERAL_USER, MYSQL_GENERAL_PASS, DB);
-		// Die if you cant connect to database
-		if ($mysqli->connect_errno) {
-			die ("<html><script language='JavaScript'>alert('Unable to connect to database! Please try again later.'),history.go(-1)</script></html>");
-		}
+		$dbh = mysqlConnect(DSN, MYSQL_GENERAL_USER, MYSQL_GENERAL_PASS);
+		$tbl = TBL_ITEMS;
 
 		$query = '';
 		$name = $_POST["phone-name-field"];
 		$address = $_POST["location-field"];
  		$details = $_POST["details"];
-		$query = "INSERT INTO " . TBL_ITEMS .
-						 " SET" .
-						 "   name = '" . $name . "'," .
-						 "   details = '" . $details . "'," .
-						 // "   avgRating = 0," .
-						 "   address = '" . $address . "';";
-		// echo "items: ". $query;
-
-		if (!$result = $mysqli->query($query)) {
-			// Check if the entry is a duplicate so the same email cant register twice
-			if($mysqli->errno == 1062){
-				die ("<html><script language='JavaScript'>alert('The phone already exists! Please use a different name.'),history.go(-1)</script></html>");
-			}else{
-				die ("<html><script language='JavaScript'>alert('Unable to connect to database! Please try again later.'),history.go(-1)</script></html>");
-			}
-		}
-
-		// Close MYSQL connection
-		$mysqli->close();
+		$query = "INSERT INTO $tbl
+							SET
+							  name = :name,
+								details = :details,
+						    address = :address";
+ 						 // "   avgRating = 0," .
+		$stmt = $dbh->prepare($query);
+		$stmt->bindParam(':name', $name, PDO::PARAM_STR);
+		$stmt->bindParam(':details', $address, PDO::PARAM_STR);
+		$stmt->bindParam(':address', $details, PDO::PARAM_STR);
 
 		// Get image information
 		$img = pathinfo(basename($_FILES["img-of-item"]["name"]));
@@ -53,13 +41,24 @@
 				die ("<html><script language='JavaScript'>alert('Unable to upload image, beacuse size is to big! Please try again later.'),history.go(-1)</script></html>");
 			}
 			// Upload image
+			// TODO: save to s3 bucket
 			if (move_uploaded_file($_FILES["img-of-item"]["tmp_name"], $targetFile)) {
-				// File is uploaded
+				// Run the query only if the file is uploaded
+				try {
+					$stmt->execute();
+		    } catch (PDOException $exception) {
+					// Check if the query errors
+					// Check if the entry is a duplicate so the same phone(item) cant be created twice
+					if($mysqli->errno == 1062){
+						die ("<html><script language='JavaScript'>alert('The phone already exists! Please use a different name.'),history.go(-1)</script></html>");
+					}else{
+						die ("<html><script language='JavaScript'>alert('Unable to connect to database! Please try again later.'),history.go(-1)</script></html>");
+					}
+				}
 	    } else {
 	    	die ("<html><script language='JavaScript'>alert('Unable to upload image! Please try again later.'),history.go(-1)</script></html>");
 	    }
 		}
-		// TODO: reditrect the user to the review page
  		// $rating = $_POST["rating"];
 		// $review = $_POST["review"];
 		// $subQuerey = "SELECT itemId" .

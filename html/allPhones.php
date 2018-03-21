@@ -7,10 +7,9 @@
 	$keys  = array_keys($_POST);
 	// Connect to the database
 	$mysqli = new mysqli(SERVER, MYSQL_GENERAL_USER, MYSQL_GENERAL_PASS, DB);
-	// Die if you cant connect to database
-	if ($mysqli->connect_errno) {
-		die ("<html><script language='JavaScript'>alert('Unable to connect to database! Please try again later.'),history.go(-1)</script></html>");
-	}
+	$dbh = mysqlConnect(DSN, MYSQL_GENERAL_USER, MYSQL_GENERAL_PASS);
+	$tbl = TBL_ITEMS;
+
 	$query = '';
 	// Generate query for search form
 	$rating = $_POST["rating"];
@@ -19,24 +18,33 @@
 	if($rating == ''){
 		$rating = 5;
 	}
-	$query = "SELECT itemId, name, address, details, avgRating".
-					 " FROM " . TBL_ITEMS .
-					 " WHERE" .
-					 "   address LIKE '%" . $location . "%'" .
-					 "   AND name LIKE '%" . $searchInput . "%';";
+	$query = "SELECT itemId, name, address, details, avgRating
+					  FROM $tbl
+					  WHERE
+					    address LIKE :location
+					    AND name LIKE :searchInput";
 
-	// Check if the query errors
-	if (!$result = $mysqli->query($query)) {
+	$stmt = $dbh->prepare($query);
+	$locationBindParam = "%".$location."%";
+	$searchInputBindParam = "%".$searchInput."%";
+	$stmt->bindParam(':location', $locationBindParam, PDO::PARAM_STR);
+	$stmt->bindParam(':searchInput', $searchInputBindParam, PDO::PARAM_STR);
+
+	try {
+		$stmt->execute();
+	} catch (PDOException $exception) {
+		// Check if the query errors
 		die ("<html><script language='JavaScript'>alert('Unable to connect to database! Please try again later.'),history.go(-1)</script></html>");
 	}
 
+
+	$count = $stmt->rowCount();
 	// If there are 0 rows exit
-	if($result->num_rows === 0){
+	if($count === 0){
 		die ("<html><script language='JavaScript'>alert('There are no search results! Please try again.'),history.go(-1)</script></html>");
 	}
-	$items = $result->fetch_all(MYSQLI_ASSOC);
+	$items = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	$itemsJSON = json_encode($items, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE);
-	// echo $itemsJSON;
 ?>
 <!doctype html>
 <html lang="en-US">
