@@ -6,6 +6,7 @@
 
 	//define('', '');
 	// Database Information
+	define('DSN', 'mysql:dbname=phinder;host=127.0.0.1');
 	define('SERVER', '127.0.0.1');
 	define('DB', 'phinder');
 	define('TBL_USERS', 'Users');

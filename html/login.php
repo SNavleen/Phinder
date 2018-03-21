@@ -12,20 +12,19 @@
 		// Get the keys of the form that is submitted
 		$keys  = array_keys($_POST);
 		// Connect to the database
-		$mysqli = new mysqli(SERVER, MYSQL_MANAGER_USER, MYSQL_MANAGER_PASS, DB);
-		// Die if you cant connect to database
-		if ($mysqli->connect_errno) {
-			die ("<html><script language='JavaScript'>alert('Unable to connect to database! Please try again later.'),history.go(-1)</script></html>");
-		}
+		$dbh = mysqlConnect(DSN, MYSQL_MANAGER_USER, MYSQL_MANAGER_PASS);
+		$tbl = TBL_USERS;
 		$query = '';
 		// Generate query for login or register form
 		if(in_array("login-form", $keys)){
 			$email = $_POST["email-field-l"];
 			$pswd = $_POST["password-field"];
-			$query = "SELECT userId, email, salt, pswd".
-							 " FROM " . TBL_USERS .
-							 " WHERE" .
-							 "   email = '" . $email . "';";
+			$query = "SELECT userId, email, salt, pswd
+								FROM $tbl
+								WHERE
+								  email = :email";
+			$stmt = $dbh->prepare($query);
+			$stmt->bindParam(':email', $email, PDO::PARAM_STR);
 		}else if(in_array("register-form", $keys)){
 			$name = $_POST["name-field"];
 			$dob = $_POST["date-field"];
@@ -40,43 +39,52 @@
 			];
 			// Hash the value with the salt and number of itterations (1000)
 			$hash = password_hash($pswd, CRYPT_SHA512, $options);
-			$query = "INSERT INTO " . TBL_USERS .
-							 " SET" .
-							 "   email = '" . $email . "'," .
-							 "   dob = '" . $dob . "'," .
-							 "   salt = '" . $salt . "'," .
-							 "   pswd = '" . $hash . "'";
+
+			$query = "INSERT INTO $tbl
+							  SET
+							    email = :email,
+									dob = :dob,
+									salt = :salt,
+									pswd = :hash";
 			if($name != ''){
-				$query = $query . ", name = '" . $name . "';";
-			}else{
-				$query = $query . " ;";
+				$query = $query . ", name = :name";
+			}
+			$stmt = $dbh->prepare($query);
+			$stmt->bindParam(':email', $email, PDO::PARAM_STR);
+			$stmt->bindParam(':dob', $dob, PDO::PARAM_STR);
+			$stmt->bindParam(':salt', $salt, PDO::PARAM_STR);
+			$stmt->bindParam(':hash', $hash, PDO::PARAM_STR);
+			if($name != ''){
+				$stmt->bindParam(':name', $name, PDO::PARAM_STR);
 			}
 		}
-		// Check if the query errors
-		if (!$result = $mysqli->query($query)) {
+
+		try {
+			$stmt->execute();
+    } catch (PDOException $exception) {
+			// Check if the query errors
 			// Check if the entry is a duplicate so the same email cant register twice
-	    if($mysqli->errno == 1062){
+			if($exception->errorInfo[1] == 1062){
 				die ("<html><script language='JavaScript'>alert('The email address already exists! Please try a different one.'),history.go(-1)</script></html>");
 			}else{
 				die ("<html><script language='JavaScript'>alert('Unable to connect to database! Please try again later.'),history.go(-1)</script></html>");
 			}
 		}
+
 		// Run if the login form to validate password
 		if(in_array("login-form", $keys)){
+			$count = $stmt->rowCount();
 			// If there are 0 rows exit
-			if($result->num_rows === 0){
+			if($count === 0){
 				die ("<html><script language='JavaScript'>alert('You do not have an account yet! Please create one.'),history.go(-1)</script></html>");
 			}
-			// Get the row
-			$userInformation = $result->fetch_assoc();
+			$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 			// Check the hash value with the salt and itterations
-			if (password_verify($pswd, $userInformation['pswd'])) {
+			if (password_verify($pswd, $results[0]['pswd'])) {
 				// Password was verifyed
 			} else {
 				die ("<html><script language='JavaScript'>alert('Password is invalid ! Please try again.'),history.go(-1)</script></html>");
 			}
-			// Free up results
-			$result->free();
 		}
 
 		// Set cookie for 2 hours
@@ -84,8 +92,6 @@
 		// Redirect to accounts page once the user is loged in
 		header("Location: account");
 		die();
-		// Close MYSQL connection
-		$mysqli->close();
 	}
 
 ?>

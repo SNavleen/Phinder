@@ -28,14 +28,6 @@
 	// googleAPI('geocode/', 'json', 'address=157 whiteny ave hamilton on');
 	// googleAPI('geocode/', 'json', 'latlng=43.239368,-79.959027');
   }
-	function googleAPI($path, $outputFormat, $parameters){
-		$key = 'key='.GOOGLE_MAPS_API_KEY;
-		$src = GOOGLE_MAPS_BASE_URL.$path.$outputFormat.'?'.$key;
-		if($parameters != ''){
-			$src = $src.'&'.$parameters;
-		}
-    echo'<script async defer src="'.$src.'"></script>';
-	}
   function metaData(){
 ?>
     <!-- <meta name="viewport" content="width-device-width, initial-scale=1, user-scalable=no"> -->
@@ -153,4 +145,23 @@
     </footer>
 <?php
   }
+
+	function googleAPI($path, $outputFormat, $parameters){
+		$key = 'key='.GOOGLE_MAPS_API_KEY;
+		$src = GOOGLE_MAPS_BASE_URL.$path.$outputFormat.'?'.$key;
+		if($parameters != ''){
+			$src = $src.'&'.$parameters;
+		}
+    echo'<script async defer src="'.$src.'"></script>';
+	}
+function mysqlConnect($dsn, $user, $pass){
+	try {
+    $dbh = new PDO($dsn, $user, $pass);
+    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	} catch (PDOException $e) {
+	  die ("<html><script language='JavaScript'>alert('Unable to connect to database! Please try again later.'),history.go(-1)</script></html>");
+	}
+  return $dbh;
+}
+
 ?>
