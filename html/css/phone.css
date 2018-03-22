@@ -154,6 +154,7 @@
     font-size: 14px;
     margin: 10px;
     padding: 15px;
+    padding-left: 40%;
   }
   .rating{
     width: 20%;
@@ -222,6 +223,13 @@
   }
   .title{
     padding: 10px;
+  }
+  .review-title{
+    text-align: center;
+    font-family: 'Share', sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+    margin: 10px;
   }
   .rating{
     width: 40%;

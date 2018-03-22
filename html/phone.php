@@ -169,19 +169,12 @@
 				?>
 
         <div class="new-review">
+          <label class="review-title"> New Review </label>
           <form class="new-review-form" action="#" method="post">
-            <h4 class="title">Overall Rating:</h4>
-						<select name="rating" id="rating" class="rating">
-							<option value="1star">1 Star</option>
-							<option value="2star">2 Star</option>
-							<option value="3star">3 Star</option>
-							<option value="4star">4 Star</option>
-							<option value="5star" selected>5 Star</option>
-						</select>
-            <!-- <img src="../img/4.9-rating.png" alt="Pixel2" class="rating-image" height="100" width="100"></img> -->
+            <?php rating()?>
             <h4 class="title">Select for anonymous:</h4>
 						<input type="checkBox" class="anonymous-checkBox" checked name="anonymous-checkBox"/>
-            <h4 class="title">Comments:</h4>
+            <!-- <h4 class="title">Comments:</h4> -->
             <textarea class="comments" name="comments"></textarea>
             <input type="submit" class="submit-review" name="submit-review"/>
           </form>
