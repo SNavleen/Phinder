@@ -15,6 +15,8 @@
 	$rating = $_POST["rating"];
 	$searchInput = $_POST["search-input"];
 	$location = $_POST["location"];
+	//TODO: fix the rating search
+	//TODO: fix the location search (radius around users current location)
 	if($rating == ''){
 		$rating = 5;
 	}
@@ -24,14 +26,13 @@
 					    address LIKE :location
 					    AND name LIKE :searchInput
 							-- AND avgRating = :rating";
-							// TODO: fix the rating query
 
 	$stmt = $dbh->prepare($query);
 	$locationBindParam = "%".$location."%";
 	$searchInputBindParam = "%".$searchInput."%";
 	$stmt->bindParam(':location', $locationBindParam, PDO::PARAM_STR);
 	$stmt->bindParam(':searchInput', $searchInputBindParam, PDO::PARAM_STR);
-	// $stmt->bindParam(':rating', $rating, PDO::PARAM_STR);
+	// $stmt->bindParam(':rating', $rating);
 
 	try {
 		$stmt->execute();

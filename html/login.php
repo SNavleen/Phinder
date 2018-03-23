@@ -85,10 +85,30 @@
 			} else {
 				die ("<html><script language='JavaScript'>alert('Password is invalid ! Please try again.'),history.go(-1)</script></html>");
 			}
+
+			// Set cookie for 2 hours
+			setcookie("loginCredentials", $results[0]['userId'], (time() + (60*60*2)), "/");
+			// Redirect to accounts page once the user is loged in
+			header("Location: account");
+			die();
 		}
 
+		$email = $_POST["email-field-r"];
+		$query = "SELECT userId
+							FROM $tbl
+							WHERE
+								email = :email";
+		$stmt = $dbh->prepare($query);
+		$stmt->bindParam(':email', $email, PDO::PARAM_STR);
+
+		try {
+			$stmt->execute();
+    } catch (PDOException $exception) {
+			die ("<html><script language='JavaScript'>alert('Unable to connect to database! Please try again later.'),history.go(-1)</script></html>");
+		}
+		$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		// Set cookie for 2 hours
-		setcookie("loginCredentials", $email, (time() + (60*60*2)), "/");
+		setcookie("loginCredentials", $results[0]['userId'], (time() + (60*60*2)), "/");
 		// Redirect to accounts page once the user is loged in
 		header("Location: account");
 		die();

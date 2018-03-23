@@ -1,4 +1,5 @@
 /* Selected item format */
+
 .selected-item {
   background-repeat: no-repeat;
   background-position: center center;
@@ -6,7 +7,8 @@
   background-size: contain;
   position: relative;
 }
-.selected-item-info{
+
+.selected-item-info {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -16,244 +18,272 @@
   max-width: 640px;
   text-align: left;
 }
-  /* Top item rating display */
-  .selected-item-rating-border{
-    padding-bottom: 32px;
-    position: relative;
-    width: 56px;
-    height: 34px;
-    margin: 16.17px 0;
-  }
-  .selected-item-rating{
-    position: relative;
-    width: 52px;
-    height: 30.02px;
-    background-color: #B0C4DE;
-    margin: 15.01px 0;
-    top: 25%;
-    left: 25%;
-    z-index: 10;
-    text-align: center;
-    font-family: 'Share', sans-serif;
-    font-style: italic;
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 32px;
-    color: #111111;
-  }
-  /* Adds the littel triangel at the top of the display */
-  .selected-item-rating::before{
-    content: "";
-    position: absolute;
-    margin-top: -15px;
-    width: 0;
-    border-left: 26px solid transparent;
-    border-right: 26px solid transparent;
-    left: 0px;
-    border-top: 15.01px solid #B0C4DE;
 
-    -webkit-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    transform: rotate(180deg);
-  }
-  /* Adds the littel triangel at the bottom of the display */
-  .selected-item-rating::after{
-    content: "";
-    position: absolute;
-    margin-top: 30px;
-    width: 0;
-    border-left: 26px solid transparent;
-    border-right: 26px solid transparent;
-    left: 0px;
-    border-top: 15.01px solid #B0C4DE;
-  }
-  /* Name of the Top item */
-  .selected-item-button{
-    margin-bottom: 15px;
-  }
-  .selected-item-button a{
-    display: inline-block;
-    line-height: 1;
-    left: 25%;
-    z-index: 10;
-    font-family: 'Fira Sans Condensed', sans-serif;
-    font-weight: 500;
-    font-size: 14px;
-    color: #111111;
-    background: #B0C4DE;
-    border-radius: 10px;
-    padding: 11px 30px;
-  }
+/* Top item rating display */
 
-  /* Discription of the top item */
-  .selected-item-discription{
-    margin-bottom: 15px;
-    margin-top: 15px;
-    display: block;
-    line-height: 1;
-    font-family: 'Fira Sans Condensed', sans-serif;
-    font-weight: 500;
-    font-size: 14px;
-    color: #111111;
-    background: #B0C4DE;
-    border-radius: 10px;
-    padding: 11px 30px;
-    width: 80%;
-  }
-  .selected-item-discription h4{
-    padding-top: 10px;
-    margin: 0px;
-    font-size: 18px;
-  }
-  .selected-item-discription li{
-    padding-top: 10px;
-    list-style: none;
-    text-indent: 5mm
-  }
-  .rating-title{
-    float: left;
-    text-align: center;
-  }
+.selected-item-rating-border {
+  padding-bottom: 32px;
+  position: relative;
+  width: 56px;
+  height: 34px;
+  margin: 16.17px 0;
+}
 
-  /* User Reviews */
-  .user-review{
-    margin-bottom: 15px;
-    margin-top: 15px;
-    display: block;
-    line-height: 1;
-    font-family: 'Fira Sans Condensed', sans-serif;
-    font-weight: 500;
-    font-size: 14px;
-    color: #111111;
-    background: #B0C4DE;
-    border-radius: 10px;
-    padding: 11px 30px;
-    width: 80%;
-  }
+.selected-item-rating {
+  position: relative;
+  width: 52px;
+  height: 30.02px;
+  background-color: #B0C4DE;
+  margin: 15.01px 0;
+  top: 25%;
+  left: 25%;
+  z-index: 10;
+  text-align: center;
+  font-family: 'Share', sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 32px;
+  color: #111111;
+}
 
-  /* New review for the selected item */
-  .new-review{
-    position:relative;
-    width: 90%;
-    min-height: 250px;
-    float: left;
-    background-color: rgba(51, 243, 255, 0.2);
-    border: 5px solid rgba(51, 54, 255, 0.5);
-    border-style: outset;
-    border-radius: 10px;
-    margin: 10px;
-    margin-top: 18%;
-    padding-top: 10px;
-  }
-  .title{
-    display:inline;
-    font-family: 'Share', sans-serif;
-    font-weight: 500;
-    font-size: 14px;
-    margin: 10px;
-    padding: 15px;
-    padding-left: 40%;
-  }
-  .rating{
-    width: 20%;
-    max-width: 90%;
-    border-radius: 0px;
-    font-size: 15px;
-    color: rgba(255, 255, 255, 0.9);
-    color: #111111;
-  }
-  .anonymous-checkBox{
-    width: 15%;
-  }
-  .comments{
-    width: 60%;
-    height: 200px;
-    border-radius: 0px;
-    font-size: 15px;
-    color: #111111;
-    background-position: right 5px;
-    background-repeat: no-repeat;
-    box-shadow: none;
-    margin: 10px;
-    margin-top: 20px;
-    margin-right: 40px;
-    vertical-align:middle;
-  }
-  .submit-review{
-    width: 50%;
-    margin-top: 10%;
-    margin-left: 25%;
-    max-width: 90%;
-    border-radius: 10px;
-    font-size: 15px;
-    color: #111111;
-  }
+/* Adds the littel triangel at the top of the display */
+
+.selected-item-rating::before {
+  content: "";
+  position: absolute;
+  margin-top: -15px;
+  width: 0;
+  border-left: 26px solid transparent;
+  border-right: 26px solid transparent;
+  left: 0px;
+  border-top: 15.01px solid #B0C4DE;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+/* Adds the littel triangel at the bottom of the display */
+
+.selected-item-rating::after {
+  content: "";
+  position: absolute;
+  margin-top: 30px;
+  width: 0;
+  border-left: 26px solid transparent;
+  border-right: 26px solid transparent;
+  left: 0px;
+  border-top: 15.01px solid #B0C4DE;
+}
+
+/* Name of the Top item */
+
+.selected-item-button {
+  margin-bottom: 15px;
+}
+
+.selected-item-button a {
+  display: inline-block;
+  line-height: 1;
+  left: 25%;
+  z-index: 10;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #111111;
+  background: #B0C4DE;
+  border-radius: 10px;
+  padding: 11px 30px;
+}
+
+/* Discription of the top item */
+
+.selected-item-discription {
+  margin-bottom: 15px;
+  margin-top: 15px;
+  display: block;
+  line-height: 1;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #111111;
+  background: #B0C4DE;
+  border-radius: 10px;
+  padding: 11px 30px;
+  width: 80%;
+}
+
+.selected-item-discription h4 {
+  padding-top: 10px;
+  margin: 0px;
+  font-size: 18px;
+}
+
+.selected-item-discription li {
+  padding-top: 10px;
+  list-style: none;
+  text-indent: 5mm
+}
+
+.rating-title {
+  float: left;
+  text-align: center;
+}
+
+/* User Reviews */
+
+.user-review {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  display: block;
+  line-height: 1;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #111111;
+  background: #B0C4DE;
+  border-radius: 10px;
+  padding: 11px 30px;
+  width: 80%;
+}
+
+/* New review for the selected item */
+
+.new-review {
+  position: relative;
+  width: 90%;
+  min-height: 250px;
+  float: left;
+  background-color: rgba(51, 243, 255, 0.2);
+  border: 5px solid rgba(51, 54, 255, 0.5);
+  border-style: outset;
+  border-radius: 10px;
+  margin: 10px;
+  margin-top: 18%;
+  margin-bottom: 18%;
+  padding-top: 10px;
+}
+
+.title {
+  display: inline;
+  font-family: 'Share', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  margin: 10px;
+  padding: 15px;
+}
+
+.new-review-title {
+  text-align: center;
+  font-family: 'Share', sans-serif;
+  font-weight: 600;
+  font-size: 30px;
+  margin: 10px;
+  padding: 20px;
+  text-decoration: underline;
+  /* padding-left: 50%; */
+}
+
+.minWordCount {
+  float: right;
+  padding-right: 20px;
+}
+
+.rating {
+  width: 20%;
+  max-width: 90%;
+  border-radius: 0px;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.9);
+  color: #111111;
+}
+
+.comments {
+  width: 90%;
+  height: 200px;
+  border-radius: 0px;
+  font-size: 15px;
+  color: #111111;
+  background-position: right 5px;
+  background-repeat: no-repeat;
+  box-shadow: none;
+  margin: 5%;
+  margin-top: 20px;
+  margin-right: 40px;
+  vertical-align: middle;
+}
+
+.submit-review {
+  width: 50%;
+  margin-bottom: 2%;
+  margin-left: 25%;
+  max-width: 90%;
+  border-radius: 10px;
+  font-size: 15px;
+  color: #111111;
+}
+
 /* Responsive for mobile phones*/
-@media screen and (min-width:0px) and (max-width:375px){
-  .selected-item-discription{
+
+@media screen and (min-width:0px) and (max-width:375px) {
+  .selected-item-discription {
     margin-bottom: 10px;
     margin-top: 10px;
     font-size: 10px;
     padding: 10px 10px;
     width: 85%;
   }
-  .selected-item-discription h4{
+  .selected-item-discription h4 {
     font-size: 16px;
   }
-  .selected-item-discription li{
+  .selected-item-discription li {
     text-indent: 2mm
   }
   .selected-item {
     height: 200px;
     width: 100%;
   }
-  .user-review{
+  .user-review {
     margin-bottom: 10px;
     margin-top: 10px;
     font-size: 12px;
     padding: 10px 20px;
     width: 85%;
   }
-
   /* New review for the selected item */
-  .new-review{
+  .new-review {
     width: 85%;
   }
-  .title{
+  .title {
     padding: 10px;
   }
-  .review-title{
-    text-align: center;
-    font-family: 'Share', sans-serif;
-    font-weight: 600;
-    font-size: 28px;
-    margin: 10px;
-  }
-  .rating{
+  .rating {
     width: 40%;
   }
-  .comments{
+  .comments {
     float: right;
   }
-  .submit-review{
+  .submit-review {
     margin-bottom: 50px;
   }
 }
-@media screen and (min-width:0px) and (max-width:560px){
-  .overall-rating{
+
+@media screen and (min-width:0px) and (max-width:560px) {
+  .overall-rating {
     margin-bottom: 10px;
     margin-top: 10px;
     font-size: 14px;
     padding: 10px 20px;
   }
 }
-@media screen and (min-width:376px){
+
+@media screen and (min-width:376px) {
   .selected-item {
     min-height: 400px;
   }
-  .title{
+  .title {
     width: 20%;
   }
 }

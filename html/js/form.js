@@ -9,7 +9,7 @@ function send(form) {
 
   var alertMessage = '';
 
-  if(form == 'login' || form == 'register'){
+  if (form == 'login' || form == 'register') {
     // Email validation for login and register
     // Validate all the fields
     var emailType = 'email-field';
@@ -25,12 +25,16 @@ function send(form) {
     var email = document.getElementById(emailType).value;
 
     alertMessage += validateEmail(email);
-  }else if(form == 'newPhone'){
+  } else if (form == 'newPhone') {
     // Validate new Review form
-  }else if(form == 'update-account'){
+  } else if (form == 'update-account') {
     // Validate account update form
-  }else if(form == 'search-form'){
+  } else if (form == 'search') {
     // Validate account search form
+  } else if (form == 'new-review') {
+    // Validate sumbit new review
+    var comment = document.getElementById('comments').value;
+    alertMessage += validateComment(comment);
   }
   //Check if there is an alertMessage
   if (alertMessage == '') {
@@ -44,6 +48,15 @@ function send(form) {
   }
 }
 
+function validateComment(comment) {
+  var len = comment.length;
+  var minchar = 50;
+  var alertMessage = '';
+  if(len <= minchar){
+    alertMessage += 'Please enter enough characters in the review message.\n';
+  }
+  return alertMessage;
+}
 
 function validateEmail(email) {
   //**Variables**//
@@ -84,3 +97,18 @@ function validateName(name) {
 
   return alertMessage;
 }
+
+// Using Ajax to check if the user has enough characters in the review textarea
+$(document).ready(function() {
+  var len = 0;
+  var minchar = 200;
+
+  $('#comments').keyup(function() {
+    len = this.value.length
+    if (len > 0) {
+      $("#minWordCount").html("Minimum characters: " + (minchar - len));
+    } else {
+      $("#minWordCount").html("Minimum characters: " + (maxchar));
+    }
+  })
+});

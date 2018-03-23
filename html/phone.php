@@ -2,10 +2,50 @@
 	$homePath = $_SERVER['DOCUMENT_ROOT'];
   $generalPath = $homePath . "/../generalPageSetup.php";
 	include_once($generalPath);
+	//TODO: average rating
 	// Connect to the database
 	$dbh = mysqlConnect(DSN, MYSQL_GENERAL_USER, MYSQL_GENERAL_PASS);
 	$tblItems = TBL_ITEMS;
 	$tblReviews = TBL_ITEMREVIEW;
+
+	// Run this section of code if the form was submitted
+	if(!empty($_POST)){
+		// Get the keys of the form that is submitted
+		$keys  = array_keys($_POST);
+		// Connect to the database
+		$dbh = mysqlConnect(DSN, MYSQL_GENERAL_USER, MYSQL_GENERAL_PASS);
+		$query = '';
+		// Generate query for new review form
+		if(in_array("new-review", $keys)){
+			$itemId = $_GET["itemId"];
+			$rating = $_POST["rating"];
+			$review = $_POST["comments"];
+			if($review != '' && !in_array("anonymous-checkBox", $keys)){
+				$userId = $_COOKIE["loginCredentials"];
+			}
+			$query = "INSERT INTO $tblReviews
+							  SET
+							    itemId = :itemId,
+									rating = :rating,
+									review = :review";
+			if(!in_array("anonymous-checkBox", $keys)){
+				$query = $query . ", userId = :userId";
+			}
+			$stmt = $dbh->prepare($query);
+			$stmt->bindParam(':itemId', $itemId, PDO::PARAM_INT);
+			$stmt->bindParam(':rating', $rating);
+			$stmt->bindParam(':review', $review, PDO::PARAM_STR);
+			if(!in_array("anonymous-checkBox", $keys)){
+				$stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
+			}
+			try {
+				$stmt->execute();
+			} catch (PDOException $exception) {
+				// Check if the query errors
+				die ("<html><script language='JavaScript'>alert('Unable to connect to database! Please try again later.'),history.go(-1)</script></html>");
+			}
+		}
+	}
 
 	$itemId = $_GET["itemId"];
 	$name = $_GET["name"];
@@ -52,18 +92,6 @@
 		die ("<html><script language='JavaScript'>alert('Unable to connect to database! Please try again later.'),history.go(-1)</script></html>");
 	}
 	$reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
-	// $item = $stmt->fetchAll(PDO::FETCH_ASSOC);
-	// $query = "INSERT INTO " . TBL_ITEMREVIEW .
-	// 				 " SET" .
-	// 				 "   itemId = (" . $subQuerey . ")," .
-	// 				 "   userId = '" . $_COOKIE['loginCredentials'] . "'," .
-	// 				 "   rating = '" . $rating . "'," .
-	// 				 "   review = '" . $review . "';";
-	// 	 		echo "review: ". $query;
-	// 	// Check if the query errors
-	// 	if (!$result = $mysqli->query($query)) {
-	// 		// die ("<html><script language='JavaScript'>alert('Unable to connect to database! Please try again later.'),history.go(-1)</script></html>");
-	// 	}
 ?>
 <!doctype html>
 <html lang="en-US">
@@ -91,7 +119,7 @@
     </header>
 		<div class="container search-bar">
 			<?php
-				searchForm();
+				// searchForm();
 			?>
 		</div>
 
@@ -169,14 +197,15 @@
 				?>
 
         <div class="new-review">
-          <label class="review-title"> New Review </label>
+          <label class="new-review-title"> New Review </label>
           <form class="new-review-form" action="#" method="post">
-            <?php rating()?>
+            <?php rating(true)?>
             <h4 class="title">Select for anonymous:</h4>
 						<input type="checkBox" class="anonymous-checkBox" checked name="anonymous-checkBox"/>
             <!-- <h4 class="title">Comments:</h4> -->
-            <textarea class="comments" name="comments"></textarea>
-            <input type="submit" class="submit-review" name="submit-review"/>
+						<span class="minWordCount" id='minWordCount'></span>
+            <textarea placeholder="Enter your review here.. (minimum characters 50)" class="comments" name="comments" id="comments"></textarea>
+            <input type="submit" class="submit-review" onclick="send('new-review')" name="new-review"/>
           </form>
         </div>
       </div>

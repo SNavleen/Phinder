@@ -3,7 +3,7 @@
 .rating {
   border: none;
   float: left;
-  width: 25% !important;
+  width: 15% !important;
 }
 
 .rating>input {
