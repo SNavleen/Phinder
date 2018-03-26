@@ -1,4 +1,4 @@
-.ftpconfig
+.ftp*
 *.swp
 .htaccess
 database/phinder.mwb

@@ -15,6 +15,7 @@
 		// Connect to the database
 		$dbh = mysqlConnect(DSN, MYSQL_GENERAL_USER, MYSQL_GENERAL_PASS);
 		$query = '';
+
 		// Generate query for new review form
 		if(in_array("new-review", $keys)){
 			$itemId = $_GET["itemId"];
@@ -38,6 +39,28 @@
 			if(!in_array("anonymous-checkBox", $keys)){
 				$stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
 			}
+			try {
+				$stmt->execute();
+			} catch (PDOException $exception) {
+				// Check if the query errors
+				die ("<html><script language='JavaScript'>alert('Unable to connect to database! Please try again later.'),history.go(-1)</script></html>");
+			}
+			// update Items set avgRating = round((select sum(rating)/count(*) as avgRating from ItemReview where itemId = 1 group by itemId), 2) where itemId = 1;
+			$query = "UPDATE $tblItems
+							  SET
+							    avgRating = ROUND(
+										(SELECT SUM(rating)/COUNT(*) AS avgRating
+										 FROM $tblReviews
+										 WHERE
+										   itemId = :itemId
+										 GROUP BY itemId
+									  ),
+									2)
+								WHERE itemId = :itemId";
+
+			$stmt = $dbh->prepare($query);
+			$stmt->bindParam(':itemId', $itemId, PDO::PARAM_INT);
+			$stmt->bindParam(':itemId', $itemId, PDO::PARAM_INT);
 			try {
 				$stmt->execute();
 			} catch (PDOException $exception) {
@@ -99,9 +122,14 @@
 		<title>Phinder | Pixel 2</title>
 		<?php
 			$img = str_replace(' ', '%20', $item["name"]);
+			$itemRatingStyle = $item['avgRating']*200;
+			$itemRatingWidth = $item['avgRating']*20;
 			echo "<style>
 							.selected-item{
 								background-image: url(img/items/".$img.".png);
+							}
+							.score.s$itemRatingStyle::after {
+							  width: $itemRatingWidth%;
 							}
 						</style>";
 			cssImport();
@@ -147,7 +175,7 @@
 
       <div class="overall-rating">
         Overall Average Rating:
-				<span class="score s<?php echo ($item['avgRating'])*2;?>"></span>
+				<span class="score s<?php echo $itemRatingStyle;?>"></span>
       </div>
 
       <div class="selected-item-more-info">

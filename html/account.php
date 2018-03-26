@@ -2,8 +2,6 @@
 	$homePath = $_SERVER['DOCUMENT_ROOT'];
   $generalPath = $homePath . "/../generalPageSetup.php";
 	include_once($generalPath);
-  // TODO: allow the user to update there information
-  // TODO: fix the javascript for account update information
   // Connect to the database
   $dbh = mysqlConnect(DSN, MYSQL_MANAGER_USER, MYSQL_MANAGER_PASS);
   $tbl = TBL_USERS;

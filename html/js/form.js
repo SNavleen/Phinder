@@ -121,7 +121,7 @@ function validateName(name) {
 // Using Ajax to check if the user has enough characters in the review textarea
 $(document).ready(function() {
   var len = 0;
-  var minchar = 200;
+  var minchar = 50;
 
   $('#comments').keyup(function() {
     len = this.value.length
