@@ -15,24 +15,25 @@
 	$rating = $_POST["rating"];
 	$searchInput = $_POST["search-input"];
 	$location = $_POST["location"];
-	//TODO: fix the rating search
 	//TODO: fix the location search (radius around users current location)
-	if($rating == ''){
-		$rating = 5;
-	}
 	$query = "SELECT itemId, name, address, details, avgRating
 					  FROM $tbl
 					  WHERE
 					    address LIKE :location
-					    AND name LIKE :searchInput
-							-- AND avgRating = :rating";
+					    AND name LIKE :searchInput";
+
+	if($rating != ''){
+		$query = $query . " AND (avgRating >= :rating OR avgRating IS NULL)";
+	}
 
 	$stmt = $dbh->prepare($query);
 	$locationBindParam = "%".$location."%";
 	$searchInputBindParam = "%".$searchInput."%";
 	$stmt->bindParam(':location', $locationBindParam, PDO::PARAM_STR);
 	$stmt->bindParam(':searchInput', $searchInputBindParam, PDO::PARAM_STR);
-	// $stmt->bindParam(':rating', $rating);
+	if($rating != ''){
+		$stmt->bindParam(':rating', $rating);
+	}
 
 	try {
 		$stmt->execute();
@@ -108,42 +109,41 @@
 	        </tr>
 					<?php
 						foreach ($items as $key => $item){
+							// print_r($item);
 							$itemId = $item["itemId"];
 							$name = $item["name"];
 							$discription = $item["details"];
 							$avgRating = $item["avgRating"];
-							if($avgRating <= $rating){
-								if($avgRating == ''){
-									$avgRating = 'NULL';
-								}
-								$phoneUrl = "phone?itemId=" . $itemId;
-								$imgPath = "img/items/" . $name . ".png";
+							if($avgRating == ''){
+								$avgRating = 'NULL';
+							}
+							$phoneUrl = "phone?itemId=" . $itemId;
+							$imgPath = "img/items/" . $name . ".png";
 					?>
-								<!-- Rating number as a small image -->
-								<tr class="all-item">
-									<td class="all-rating-border">
-										<div class="all-item-rating">
-											<?php echo $avgRating;?>
-										</div>
-									</td>
-									<!-- Button to navigate to view more information on the item -->
-									<td class="all-item-button">
-										<a href="<?php echo $phoneUrl;?>"><?php echo $name;?></a>
-									</td>
-									<!-- Title of the item -->
-									<td>
-										<!-- <h2 class="top-item-name"></h2> -->
-										<img src="<?php echo $imgPath;?>" alt="iPhone7Plus" class="all-item-name" height="100" width="100"></img>
-									</td>
-									<!-- Small Discription of item -->
-									<td class="all-item-mini-discription">
-										<p>
-											<?php echo $discription;?>
-										</p>
-									</td>
-								</tr>
+							<!-- Rating number as a small image -->
+							<tr class="all-item">
+								<td class="all-rating-border">
+									<div class="all-item-rating">
+										<?php echo $avgRating;?>
+									</div>
+								</td>
+								<!-- Button to navigate to view more information on the item -->
+								<td class="all-item-button">
+									<a href="<?php echo $phoneUrl;?>"><?php echo $name;?></a>
+								</td>
+								<!-- Title of the item -->
+								<td>
+									<!-- <h2 class="top-item-name"></h2> -->
+									<img src="<?php echo $imgPath;?>" alt="iPhone7Plus" class="all-item-name" height="100" width="100"></img>
+								</td>
+								<!-- Small Discription of item -->
+								<td class="all-item-mini-discription">
+									<p>
+										<?php echo $discription;?>
+									</p>
+								</td>
+							</tr>
 						<?php
-								}
 							}
 						?>
 				</table>

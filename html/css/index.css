@@ -261,11 +261,11 @@
     width: 80%;
   }
   .item-rating-border{
-    background-image: url(../img/items/pixel2.png);
+    /* background-image: url(../img/items/pixel2.png); */
     height: 200px;
     width: 100%;
     background-position: center center;
-    background-size: cover;
+    background-size: contain;
     position: relative;
   }
 }
@@ -275,7 +275,7 @@
     display: none;
   }
   .top-item {
-    background-image: url(../img/items/pixel2.png);
+    /* background-image: url(../img/items/pixel2.png); */
   }
   .top-item-mini-discription{
     width: 30%;

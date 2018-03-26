@@ -2,7 +2,6 @@
 	$homePath = $_SERVER['DOCUMENT_ROOT'];
   $generalPath = $homePath . "/../generalPageSetup.php";
 	include_once($generalPath);
-	//TODO: average rating
 	// Connect to the database
 	$dbh = mysqlConnect(DSN, MYSQL_GENERAL_USER, MYSQL_GENERAL_PASS);
 	$tblItems = TBL_ITEMS;
@@ -45,6 +44,8 @@
 				// Check if the query errors
 				die ("<html><script language='JavaScript'>alert('Unable to connect to database! Please try again later.'),history.go(-1)</script></html>");
 			}
+
+			// Update avgRating
 			// update Items set avgRating = round((select sum(rating)/count(*) as avgRating from ItemReview where itemId = 1 group by itemId), 2) where itemId = 1;
 			$query = "UPDATE $tblItems
 							  SET
