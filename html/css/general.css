@@ -41,51 +41,25 @@ fieldset, label {
 
 /* All the valid and invalid fileds */
 
-.date-field:valid {
+.date-field:valid,
+.email-field:valid,
+.password-field:valid,
+.location-field:valid,
+.phone-name-field:valid,
+.details:valid,
+.update-date-field:valid,
+.update-email-field:valid {
   background-color: rgba(0, 255, 0, 0.25);
 }
 
-.date-field:invalid {
-  background-color: rgba(255, 0, 0, 0.25);
-}
-
-.email-field:valid {
-  background-color: rgba(0, 255, 0, 0.25);
-}
-
-.email-field:invalid {
-  background-color: rgba(255, 0, 0, 0.25);
-}
-
-.password-field:valid {
-  background-color: rgba(0, 255, 0, 0.25);
-}
-
-.password-field:invalid {
-  background-color: rgba(255, 0, 0, 0.25);
-}
-
-.location-field:valid {
-  background-color: rgba(0, 255, 0, 0.25);
-}
-
-.location-field:invalid {
-  background-color: rgba(255, 0, 0, 0.25);
-}
-
-.phone-name-field:valid {
-  background-color: rgba(0, 255, 0, 0.25);
-}
-
-.phone-name-field:invalid {
-  background-color: rgba(255, 0, 0, 0.25);
-}
-
-.details:valid {
-  background-color: rgba(0, 255, 0, 0.25);
-}
-
-.details:invalid {
+.date-field:invalid,
+.email-field:invalid,
+.password-field:invalid,
+.location-field:invalid,
+.phone-name-field:invalid,
+.details:invalid,
+.update-date-field:invalid,
+.update-email-field:invalid {
   background-color: rgba(255, 0, 0, 0.25);
 }
 

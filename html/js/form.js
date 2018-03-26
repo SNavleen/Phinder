@@ -29,6 +29,26 @@ function send(form) {
     // Validate new Review form
   } else if (form == 'update-account') {
     // Validate account update form
+    var name = document.getElementById('name-field').value;
+    var date = document.getElementById('date-field').value;
+    var email = document.getElementById('email-field').value;
+    var oldPass = document.getElementById('old-password-field').value;
+    var newPass = document.getElementById('new-password-field').value;
+    var newPass2 = document.getElementById('retype-new-password-field').value;
+
+    if((newPass != '' || newPass2 != '') && oldPass == ''){
+      alertMessage += 'Please fill in old password.\n';
+    }else if(oldPass != '' && newPass != '' && newPass2 != ''){
+      if(newPass != newPass2){
+        alertMessage += 'The new passwords don\'t match.\n';
+      }
+    }else{
+      alertMessage += 'Please fill in all the passowrd fields.\n';
+    }
+
+    alertMessage += validateDate(date);
+    alertMessage += validateEmail(email);
+    // alertMessage = alertMessage + validateName(name);
   } else if (form == 'search') {
     // Validate account search form
   } else if (form == 'new-review') {
