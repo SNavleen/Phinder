@@ -134,7 +134,7 @@
 								<!-- Title of the item -->
 								<td>
 									<!-- <h2 class="top-item-name"></h2> -->
-									<img src="<?php echo $imgPath;?>" alt="iPhone7Plus" class="all-item-name" height="100" width="100"></img>
+									<img src="<?php echo $imgPath;?>" alt="<?php echo $name;?>" class="all-item-name" height="100" width="100"></img>
 								</td>
 								<!-- Small Discription of item -->
 								<td class="all-item-mini-discription">

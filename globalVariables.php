@@ -19,9 +19,9 @@
 	define('GOOGLE_MAPS_BASE_URL', 'https://maps.googleapis.com/maps/api/');
 
 	// S3 URL
-	define('S3_URL', 'https://s3.us-east-2.amazonaws.com/');
+	define('S3_URL', 'https://s3.amazonaws.com/');
 	// S3 BUCKET NAME
-  define('S3_BKTNAME', 'phinder2.0');
+  define('S3_BKTNAME', 'phinderv1');
 
 	//ARRAY'S
 	$userPages = array(

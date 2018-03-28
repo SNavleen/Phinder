@@ -26,7 +26,7 @@
 		$stmt->bindParam(':details', $details, PDO::PARAM_STR);
 
 		// Get image information
-		$img = pathinfo(basename($_FILES["img-of-item"]["name"]));
+		// $img = pathinfo(basename($_FILES["img-of-item"]["name"]));
 		$targetFile = $name . ".png";// . $img["extension"];
 
 		// Check if image file is a actual image or fake image
