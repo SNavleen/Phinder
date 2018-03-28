@@ -27,8 +27,7 @@
 
 		// Get image information
 		$img = pathinfo(basename($_FILES["img-of-item"]["name"]));
-		$targetDir = "img/items/";
-		$targetFile = $targetDir . $name . ".png";// . $img["extension"];
+		$targetFile = $name . ".png";// . $img["extension"];
 
 		// Check if image file is a actual image or fake image
 		if(isset($_POST["submit"])) {
