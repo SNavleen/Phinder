@@ -118,7 +118,7 @@
 								$avgRating = 'NULL';
 							}
 							$phoneUrl = "phone?itemId=" . $itemId;
-							$imgPath = "img/items/" . $name . ".png";
+							$imgPath = "".S3_URL.S3_BKTNAME."/" . $name . ".png";
 					?>
 							<!-- Rating number as a small image -->
 							<tr class="all-item">

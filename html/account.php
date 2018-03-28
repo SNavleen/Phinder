@@ -126,7 +126,7 @@
     <main class="container">
       <div class="update">
         <label class="update-title"> Update Account </label>
-        <form method="post" class="update-account" class="update-account-form" action="#">
+        <form method="post" class="update-account" class="update-account-form" action="#" enctype="multipart/form-data">
           <input type="text" class="update-name-field" placeholder="Enter full name..." value="<?php echo $name;?>" name="name-field" id="name-field"/>
           <input type="date" class="update-date-field" placeholder="YYYY-MM-DD" value="<?php echo $dob;?>" name="date-field" id="date-field" required pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])"/>
           <input type="email" class="update-email-field" placeholder="Enter email address..." value="<?php echo $email;?>" name="email-field" id="email-field" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>

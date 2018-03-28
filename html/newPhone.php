@@ -2,6 +2,7 @@
 	$homePath = $_SERVER['DOCUMENT_ROOT'];
   $generalPath = $homePath . "/../generalPageSetup.php";
 	include_once($generalPath);
+	global $s3;
 
 	// Run this section of code if the form was submitted
 	if(!empty($_POST)){
@@ -41,8 +42,7 @@
 				die ("<html><script language='JavaScript'>alert('Unable to upload image, beacuse size is to big! Please try again later.'),history.go(-1)</script></html>");
 			}
 			// Upload image
-			// TODO: save to s3 bucket
-			if (move_uploaded_file($_FILES["img-of-item"]["tmp_name"], $targetFile)) {
+			if ($s3->putObjectFile($_FILES["img-of-item"]["tmp_name"], S3_BKTNAME, $targetFile, S3::ACL_PUBLIC_READ)) {
 				// Run the query only if the file is uploaded
 				try {
 					$stmt->execute();

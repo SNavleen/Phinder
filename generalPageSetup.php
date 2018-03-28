@@ -92,7 +92,7 @@
 ?>
     <!-- Quick search bar -->
     <div class="search-bar">
-      <form method="post" class="search-form" action="allPhones.php">
+      <form method="post" class="search-form" action="allPhones.php" enctype="multipart/form-data">
         <label>
           <span class="screen-reader-text">Search for:</span>
 					<?php rating(); ?>

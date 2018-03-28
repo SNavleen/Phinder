@@ -127,7 +127,7 @@
 			$itemRatingWidth = $item['avgRating']*20;
 			echo "<style>
 							.selected-item{
-								background-image: url(img/items/".$img.".png);
+								background-image: url(".S3_URL.S3_BKTNAME."/".$img.".png);
 							}
 							.score.s$itemRatingStyle::after {
 							  width: $itemRatingWidth%;
@@ -227,7 +227,7 @@
 
         <div class="new-review">
           <label class="new-review-title"> New Review </label>
-          <form class="new-review-form" action="#" method="post">
+          <form class="new-review-form" action="#" method="post" enctype="multipart/form-data">
             <?php rating(true)?>
             <h4 class="title">Select for anonymous:</h4>
 						<input type="checkBox" class="anonymous-checkBox" checked name="anonymous-checkBox"/>

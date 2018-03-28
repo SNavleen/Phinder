@@ -32,18 +32,18 @@
 	<head>
 		<title>Phinder | Home</title>
 		<?php
-			$img = str_replace(' ', '%20', $topItem["name"]);
+			$img = str_replace(' ', '%20', $topItem[0]["name"]);
 			echo "<style>
 							@media screen and (min-width:0px) and (max-width:500px){
 
 							  .item-rating-border{
-							    background-image: url(img/items/".$img.".png);
+							    background-image: url(".S3_URL.S3_BKTNAME."/".$img.".png);
 							  }
 							}
 
 							@media screen and (min-width:500px){
 							  .top-item {
-							    background-image: url(img/items/".$img.".png);
+							    background-image: url(".S3_URL.S3_BKTNAME."/".$img.".png);
 							  }
 							}
 						</style>";

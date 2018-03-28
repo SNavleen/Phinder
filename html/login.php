@@ -146,7 +146,7 @@
       <div class="users">
         <div class="login">
           <label class="login-title"> Login </label>
-          <form method="post" class="login-form" action="#">
+          <form method="post" class="login-form" action="#" enctype="multipart/form-data">
             <input type="email" class="email-field" placeholder="Enter email address..." value="" name="email-field-l" id="email-field-l" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required/>
             <input type="password" class="password-field" placeholder="Enter password..." value="" name="password-field" id="password-field" required/>
   					<input type="submit" class="login-submit" value="Submit" onclick="send('login')" name="login-form">
@@ -155,7 +155,7 @@
 
         <div class="register">
           <label class="register-title"> Register </label>
-          <form method="post" class="register-form" action="#">
+          <form method="post" class="register-form" action="#" enctype="multipart/form-data">
             <input type="text" class="name-field" placeholder="Enter full name..." value="" name="name-field" id="name-field"/>
 						<input type="date" class="date-field" placeholder="YYYY-MM-DD" value="" name="date-field" id="date-field" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])" required/>
             <input type="email" class="email-field" placeholder="Enter email address..." value="" name="email-field-r" id="email-field-r" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required/>
